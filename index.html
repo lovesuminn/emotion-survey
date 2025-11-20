@@ -94,22 +94,27 @@
       margin: 18px 0 20px;
     }
 
-    /* Q1 위에 들어가는 이모티콘 박스 */
+    /* Q1 위에 들어가는 이모티콘 박스 (크게 + sticky 고정) */
     .emoji-top-box {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 12px;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 16px;
       background: radial-gradient(circle at 20% 0, #ffe4f1 0, #ffd3ea 30%, #ffecef 100%);
       border: 1px solid rgba(244, 114, 182, 0.45);
-      border-radius: 24px;
+      border-radius: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+
+      /* 스크롤 내려도 위에 고정 */
+      position: sticky;
+      top: 16px;
+      z-index: 10;
     }
 
     .emoji-top-box img {
-      width: 80%;
+      width: 82%;
       height: auto;
       display: block;
     }
@@ -373,6 +378,12 @@
         font-size: 0.86rem;
       }
 
+      .emoji-top-box {
+        width: 120px;
+        height: 120px;
+        top: 12px;
+      }
+
       .emotion-matrix thead th:nth-child(n+2) {
         font-size: 0.7rem;
       }
@@ -418,7 +429,7 @@
 
       <hr />
 
-      <!-- 이모티콘 이미지: Q1 바로 위 -->
+      <!-- 이모티콘 이미지: Q1 바로 위, 크게 + sticky -->
       <div class="emoji-top-box">
         <img src="emoji1.png" alt="이모티콘" />
       </div>
@@ -573,91 +584,4 @@
                         <input type="radio" name="disgust" value="1" required />
                         <span class="emotion-dot"></span>
                       </label>
-                    </td>
-                    <td><label><input type="radio" name="disgust" value="2" /><span class="emotion-dot"></span></label></td>
-                    <td><label><input type="radio" name="disgust" value="3" /><span class="emotion-dot"></span></label></td>
-                    <td><label><input type="radio" name="disgust" value="4" /><span class="emotion-dot"></span></label></td>
-                    <td><label><input type="radio" name="disgust" value="5" /><span class="emotion-dot"></span></label></td>
-                    <td><label><input type="radio" name="disgust" value="6" /><span class="emotion-dot"></span></label></td>
-                    <td><label><input type="radio" name="disgust" value="7" /><span class="emotion-dot"></span></label></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Q4 -->
-        <div class="question-block">
-          <div class="question-title">
-            Q4. 이 이모티콘의 감정을 판단할 때 어떤 요소가 가장 중요했다고 느끼셨나요?
-            <span class="required">*</span>
-          </div>
-          <div class="question-desc">
-            연구 설계에 맞게 보기 내용을 수정해서 사용할 수 있습니다.
-          </div>
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q4" value="1" required />
-              <span>1. 입 모양</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="2" />
-              <span>2. 눈 모양</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="3" />
-              <span>3. 얼굴 전체 표정(형태)</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="4" />
-              <span>4. 색감·톤(배경, 얼굴색 등)</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="5" />
-              <span>5. 기타</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="buttons">
-          <button type="submit">응답 제출하기</button>
-        </div>
-      </form>
-
-      <div id="thank-you">
-        <h2>응답해 주셔서 감사합니다 😊</h2>
-        <p>
-          설문 응답이 정상적으로 전송되었습니다.<br />
-          (현재는 테스트 버전이라, 브라우저 개발자 도구 Console에서 응답 내용을 확인할 수 있습니다.)
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const form = document.getElementById("survey-form");
-    const thank = document.getElementById("thank-you");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const data = {};
-      for (const [key, value] of formData.entries()) {
-        if (data[key]) {
-          if (!Array.isArray(data[key])) data[key] = [data[key]];
-          data[key].push(value);
-        } else {
-          data[key] = value;
-        }
-      }
-
-      console.log("응답 데이터:", data);
-
-      form.style.display = "none";
-      thank.style.display = "block";
-    });
-  </script>
-</body>
-</html>
+                    </
