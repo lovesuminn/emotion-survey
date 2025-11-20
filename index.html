@@ -43,31 +43,12 @@
       border: 1px solid rgba(148, 163, 255, 0.55);
     }
 
-    /* 헤더 */
+    /* 헤더 (텍스트만) */
     header {
       display: flex;
-      gap: 20px;
-      align-items: center;
+      flex-direction: column;
+      gap: 6px;
       margin-bottom: 18px;
-    }
-
-    .emoji-wrap {
-      flex-shrink: 0;
-      width: 110px;
-      height: 110px;
-      border-radius: 32px;
-      background: radial-gradient(circle at 20% 0, #ffe4f1 0, #ffd3ea 30%, #ffecef 100%);
-      border: 1px solid rgba(244, 114, 182, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .emoji-wrap img {
-      max-width: 84px;
-      height: auto;
-      display: block;
     }
 
     .title-area {
@@ -84,7 +65,7 @@
       color: #4f46e5;
       font-size: 0.72rem;
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .badge-dot {
@@ -95,7 +76,7 @@
     }
 
     h1 {
-      margin: 0 0 6px;
+      margin: 0 0 4px;
       font-size: 1.5rem;
       font-weight: 700;
       color: #111827;
@@ -113,6 +94,26 @@
       margin: 18px 0 20px;
     }
 
+    /* Q1 위에 들어가는 이모티콘 박스 */
+    .emoji-top-box {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 12px;
+      background: radial-gradient(circle at 20% 0, #ffe4f1 0, #ffd3ea 30%, #ffecef 100%);
+      border: 1px solid rgba(244, 114, 182, 0.45);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .emoji-top-box img {
+      width: 80%;
+      height: auto;
+      display: block;
+    }
+
     /* 질문 블록 공통 */
     .question-block {
       padding: 16px 18px 18px;
@@ -121,6 +122,13 @@
       border: 1px solid rgba(209, 213, 245, 0.9);
       margin-bottom: 14px;
       box-shadow: 0 6px 16px rgba(148, 163, 255, 0.18);
+    }
+
+    /* Q1은 배경 흰색 + 테두리만 유지 */
+    .question-block.q1 {
+      background: #ffffff;
+      border: 1px solid rgba(209, 213, 245, 0.9);
+      box-shadow: 0 4px 10px rgba(148, 163, 255, 0.15);
     }
 
     .question-title {
@@ -357,17 +365,6 @@
         border-radius: 22px;
       }
 
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .emoji-wrap {
-        margin: 0 auto 8px;
-        width: 100px;
-        height: 100px;
-      }
-
       h1 {
         font-size: 1.3rem;
       }
@@ -404,11 +401,8 @@
 <body>
   <div class="page-shell">
     <div class="survey-card">
-      <!-- 헤더: 이모티콘 + 제목 -->
+      <!-- 헤더: 제목/설명 -->
       <header>
-        <div class="emoji-wrap">
-          <img src="emoji1.png" alt="이모티콘" />
-        </div>
         <div class="title-area">
           <div class="badge">
             <span class="badge-dot"></span>
@@ -424,9 +418,14 @@
 
       <hr />
 
+      <!-- 이모티콘 이미지: Q1 바로 위 -->
+      <div class="emoji-top-box">
+        <img src="emoji1.png" alt="이모티콘" />
+      </div>
+
       <form id="survey-form">
-        <!-- Q1: 이모티콘 관련 질문이 헤더 바로 아래로 오도록 -->
-        <div class="question-block">
+        <!-- Q1 -->
+        <div class="question-block q1">
           <div class="question-title">
             Q1. 위 이모티콘은 어떤 감정을 표현한다고 생각하시나요?
             <span class="required">*</span>
