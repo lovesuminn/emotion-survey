@@ -1,292 +1,3 @@
-@@ -1,288 +1,576 @@
-<!-- ===== 이모티콘 1개 설문 블록 ===== -->
-
-<!-- 이모티콘 이미지 -->
-<div class="question-block">
-  <div style="text-align: center;">
-    <img src="emoji1.png" alt="이모티콘" style="max-width: 160px; height: auto;" />
-  </div>
-</div>
-
-<!-- Q1. 이모티콘 감정 (주관식) -->
-<div class="question-block" data-question-id="emo_q1" data-type="textarea">
-  <div class="question-title">
-    Q1. 위 이모티콘은 어떤 감정을 표현한다고 생각하시나요?
-    <span class="required">*</span>
-  </div>
-  <div class="question-desc">(예: 기쁨, 놀라움, 기대, 복합 감정 등 자유롭게 적어 주세요.)</div>
-  <textarea name="emo_q1" required></textarea>
-</div>
-
-<!-- Q2. 두 가지 이상 감정 동시 느낌 (예/아니오) -->
-<div class="question-block" data-question-id="emo_q2" data-type="radio">
-  <div class="question-title">
-    Q2. 이 이모티콘에서 두 가지 이상의 감정이 동시에 느껴졌나요?
-    <span class="required">*</span>
-  </div>
-  <div class="options">
-    <label class="option">
-      <input type="radio" name="emo_q2" value="yes" required />
-      <span>네, 두 가지 이상 느껴졌습니다.</span>
-    </label>
-    <label class="option">
-      <input type="radio" name="emo_q2" value="no" />
-      <span>아니요, 한 가지 감정만 느껴졌습니다.</span>
-    </label>
-  </div>
-</div>
-
-<!-- Q3. 감정별 선형 Scale 평가 (1~7) -->
-<div class="question-block" data-question-id="emo_q3" data-type="scale-group">
-  <div class="question-title">
-    Q3. 아래 각 감정에 대해 이 이모티콘에서 얼마나 느껴졌는지 평가해 주세요.
-    <span class="required">*</span>
-  </div>
-  <div class="question-desc">1 = 전혀 느껴지지 않는다 ~ 7 = 매우 강하게 느껴진다</div>
-
-  <!-- 감정별 row 하나가 선형 스케일 -->
-  <!-- 기쁨 -->
-  <div style="margin-top: 10px;">
-    <div style="font-size: 0.9rem; margin-bottom: 4px;">기쁨</div>
-    <div class="likert-row">
-      <!-- name을 joy 로 고정 -->
-      <label>
-        <input type="radio" name="joy" value="1" required />
-        <span>1</span>
-      </label>
-      <label>
-        <input type="radio" name="joy" value="2" />
-        <span>2</span>
-      </label>
-      <label>
-        <input type="radio" name="joy" value="3" />
-        <span>3</span>
-      </label>
-      <label>
-        <input type="radio" name="joy" value="4" />
-        <span>4</span>
-      </label>
-      <label>
-        <input type="radio" name="joy" value="5" />
-        <span>5</span>
-      </label>
-      <label>
-        <input type="radio" name="joy" value="6" />
-        <span>6</span>
-      </label>
-      <label>
-        <input type="radio" name="joy" value="7" />
-        <span>7</span>
-      </label>
-    </div>
-  </div>
-
-  <!-- 슬픔 -->
-  <div style="margin-top: 10px;">
-    <div style="font-size: 0.9rem; margin-bottom: 4px;">슬픔</div>
-    <div class="likert-row">
-      <label>
-        <input type="radio" name="sadness" value="1" required />
-        <span>1</span>
-      </label>
-      <label>
-        <input type="radio" name="sadness" value="2" />
-        <span>2</span>
-      </label>
-      <label>
-        <input type="radio" name="sadness" value="3" />
-        <span>3</span>
-      </label>
-      <label>
-        <input type="radio" name="sadness" value="4" />
-        <span>4</span>
-      </label>
-      <label>
-        <input type="radio" name="sadness" value="5" />
-        <span>5</span>
-      </label>
-      <label>
-        <input type="radio" name="sadness" value="6" />
-        <span>6</span>
-      </label>
-      <label>
-        <input type="radio" name="sadness" value="7" />
-        <span>7</span>
-      </label>
-    </div>
-  </div>
-
-  <!-- 화남 -->
-  <div style="margin-top: 10px;">
-    <div style="font-size: 0.9rem; margin-bottom: 4px;">화남</div>
-    <div class="likert-row">
-      <label>
-        <input type="radio" name="anger" value="1" required />
-        <span>1</span>
-      </label>
-      <label>
-        <input type="radio" name="anger" value="2" />
-        <span>2</span>
-      </label>
-      <label>
-        <input type="radio" name="anger" value="3" />
-        <span>3</span>
-      </label>
-      <label>
-        <input type="radio" name="anger" value="4" />
-        <span>4</span>
-      </label>
-      <label>
-        <input type="radio" name="anger" value="5" />
-        <span>5</span>
-      </label>
-      <label>
-        <input type="radio" name="anger" value="6" />
-        <span>6</span>
-      </label>
-      <label>
-        <input type="radio" name="anger" value="7" />
-        <span>7</span>
-      </label>
-    </div>
-  </div>
-
-  <!-- 놀라움 -->
-  <div style="margin-top: 10px;">
-    <div style="font-size: 0.9rem; margin-bottom: 4px;">놀라움</div>
-    <div class="likert-row">
-      <label>
-        <input type="radio" name="surprise" value="1" required />
-        <span>1</span>
-      </label>
-      <label>
-        <input type="radio" name="surprise" value="2" />
-        <span>2</span>
-      </label>
-      <label>
-        <input type="radio" name="surprise" value="3" />
-        <span>3</span>
-      </label>
-      <label>
-        <input type="radio" name="surprise" value="4" />
-        <span>4</span>
-      </label>
-      <label>
-        <input type="radio" name="surprise" value="5" />
-        <span>5</span>
-      </label>
-      <label>
-        <input type="radio" name="surprise" value="6" />
-        <span>6</span>
-      </label>
-      <label>
-        <input type="radio" name="surprise" value="7" />
-        <span>7</span>
-      </label>
-    </div>
-  </div>
-
-  <!-- 두려움 -->
-  <div style="margin-top: 10px;">
-    <div style="font-size: 0.9rem; margin-bottom: 4px;">두려움</div>
-    <div class="likert-row">
-      <label>
-        <input type="radio" name="fear" value="1" required />
-        <span>1</span>
-      </label>
-      <label>
-        <input type="radio" name="fear" value="2" />
-        <span>2</span>
-      </label>
-      <label>
-        <input type="radio" name="fear" value="3" />
-        <span>3</span>
-      </label>
-      <label>
-        <input type="radio" name="fear" value="4" />
-        <span>4</span>
-      </label>
-      <label>
-        <input type="radio" name="fear" value="5" />
-        <span>5</span>
-      </label>
-      <label>
-        <input type="radio" name="fear" value="6" />
-        <span>6</span>
-      </label>
-      <label>
-        <input type="radio" name="fear" value="7" />
-        <span>7</span>
-      </label>
-    </div>
-  </div>
-
-  <!-- 혐오 -->
-  <div style="margin-top: 10px;">
-    <div style="font-size: 0.9rem; margin-bottom: 4px;">혐오</div>
-    <div class="likert-row">
-      <label>
-        <input type="radio" name="disgust" value="1" required />
-        <span>1</span>
-      </label>
-      <label>
-        <input type="radio" name="disgust" value="2" />
-        <span>2</span>
-      </label>
-      <label>
-        <input type="radio" name="disgust" value="3" />
-        <span>3</span>
-      </label>
-      <label>
-        <input type="radio" name="disgust" value="4" />
-        <span>4</span>
-      </label>
-      <label>
-        <input type="radio" name="disgust" value="5" />
-        <span>5</span>
-      </label>
-      <label>
-        <input type="radio" name="disgust" value="6" />
-        <span>6</span>
-      </label>
-      <label>
-        <input type="radio" name="disgust" value="7" />
-        <span>7</span>
-      </label>
-    </div>
-  </div>
-</div>
-
-<!-- Q4. 감정 판단 시 중요한 요소 (객관식 1~5번) -->
-<div class="question-block" data-question-id="emo_q4" data-type="radio">
-  <div class="question-title">
-    Q4. 이 이모티콘의 감정을 판단할 때 어떤 요소가 가장 중요했다고 느끼셨나요?
-    <span class="required">*</span>
-  </div>
-  <div class="question-desc">(연구 설계에 맞게 보기 내용을 수정해서 사용하세요.)</div>
-  <div class="options">
-    <label class="option">
-      <input type="radio" name="emo_q4" value="1" required />
-      <span>1. 입 모양</span>
-    </label>
-    <label class="option">
-      <input type="radio" name="emo_q4" value="2" />
-      <span>2. 눈 모양</span>
-    </label>
-    <label class="option">
-      <input type="radio" name="emo_q4" value="3" />
-      <span>3. 얼굴 전체 표정(형태)</span>
-    </label>
-    <label class="option">
-      <input type="radio" name="emo_q4" value="4" />
-      <span>4. 색감·톤(배경, 얼굴색 등)</span>
-    </label>
-    <label class="option">
-      <input type="radio" name="emo_q4" value="5" />
-      <span>5. 기타</span>
-    </label>
-  </div>
-</div>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -316,22 +27,23 @@
       background: radial-gradient(circle at top, #ffe4f1 0, #f4f7ff 40%, #e5edff 100%);
     }
 
-    .shell {
+    .page-shell {
       width: 100%;
-      max-width: 960px;
+      max-width: 980px;
       display: flex;
       justify-content: center;
     }
 
-    .card {
+    .survey-card {
       width: 100%;
       background: #ffffff;
-      border-radius: 24px;
-      padding: 26px 26px 28px;
-      box-shadow: 0 18px 45px rgba(31, 41, 55, 0.18);
-      border: 1px solid rgba(148, 163, 255, 0.5);
+      border-radius: 28px;
+      padding: 26px 26px 30px;
+      box-shadow: 0 18px 45px rgba(31, 41, 55, 0.16);
+      border: 1px solid rgba(148, 163, 255, 0.55);
     }
 
+    /* 헤더 */
     header {
       display: flex;
       gap: 20px;
@@ -341,11 +53,11 @@
 
     .emoji-wrap {
       flex-shrink: 0;
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 32px;
       background: radial-gradient(circle at 20% 0, #ffe4f1 0, #ffd3ea 30%, #ffecef 100%);
-      border: 1px solid rgba(244, 114, 182, 0.4);
+      border: 1px solid rgba(244, 114, 182, 0.45);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -353,7 +65,7 @@
     }
 
     .emoji-wrap img {
-      max-width: 90px;
+      max-width: 84px;
       height: auto;
       display: block;
     }
@@ -362,24 +74,11 @@
       flex: 1;
     }
 
-    h1 {
-      margin: 0 0 6px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #111827;
-    }
-
-    .subtitle {
-      font-size: 0.9rem;
-      color: #6b7280;
-      line-height: 1.5;
-    }
-
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 3px 10px;
+      padding: 4px 11px;
       border-radius: 999px;
       background: #eef2ff;
       color: #4f46e5;
@@ -395,18 +94,33 @@
       background: #4f46e5;
     }
 
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      line-height: 1.55;
+    }
+
     hr {
       border: none;
       border-top: 1px solid #e5e7eb;
       margin: 18px 0 20px;
     }
 
+    /* 질문 블록 공통 */
     .question-block {
-      padding: 14px 12px 16px;
-      border-radius: 18px;
-      background: #f9fafb;
-      border: 1px solid #e5e7f5;
+      padding: 16px 18px 18px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(238, 242, 255, 0.9), rgba(248, 250, 252, 0.95));
+      border: 1px solid rgba(209, 213, 245, 0.9);
       margin-bottom: 14px;
+      box-shadow: 0 6px 16px rgba(148, 163, 255, 0.18);
     }
 
     .question-title {
@@ -425,15 +139,15 @@
     .question-desc {
       font-size: 0.8rem;
       color: #6b7280;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     textarea {
       width: 100%;
-      min-height: 70px;
+      min-height: 72px;
       padding: 9px 10px;
       font-size: 0.9rem;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid #d4d7f0;
       resize: vertical;
       outline: none;
@@ -458,7 +172,7 @@
       gap: 8px;
       padding: 7px 10px;
       border-radius: 999px;
-      background: #f3f4ff;
+      background: rgba(243, 244, 255, 0.85);
       border: 1px solid transparent;
       font-size: 0.88rem;
       color: #111827;
@@ -475,59 +189,68 @@
       background: #eef2ff;
     }
 
-    /* 감정 매트릭스 전체 래퍼 */
+    /* 감정 매트릭스 */
     .emotion-matrix-wrapper {
       margin-top: 10px;
+      border-radius: 18px;
+      background: #f9fbff;
+      border: 1px solid rgba(209, 213, 245, 0.9);
+      overflow: hidden;
     }
 
     .matrix-scroll {
       width: 100%;
       overflow-x: auto;
-      padding-bottom: 6px;
     }
 
     .emotion-matrix {
       min-width: 520px;
       width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 24px rgba(148, 163, 255, 0.3);
-      background: #ffffff;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .emotion-matrix thead {
+      background: linear-gradient(90deg,
+        #f4f1ff 0%,
+        #fdf2ff 16%,
+        #f4f1ff 32%,
+        #fdf2ff 48%,
+        #f4f1ff 64%,
+        #fdf2ff 80%,
+        #f4f1ff 100%);
     }
 
     .emotion-matrix thead th {
-      padding: 9px 4px;
+      padding: 10px 4px 8px;
       font-size: 0.8rem;
       font-weight: 600;
       color: #4b5563;
-      background: linear-gradient(135deg, #eef2ff, #fdf2ff);
       border-bottom: 1px solid #e5e7eb;
       white-space: nowrap;
     }
 
     .emotion-matrix thead th:first-child {
       text-align: left;
-      padding-left: 14px;
+      padding-left: 16px;
     }
 
     .emotion-matrix tbody tr:nth-child(odd) {
-      background: #f9fafb;
+      background: rgba(248, 250, 252, 0.9);
     }
 
     .emotion-matrix tbody tr:nth-child(even) {
-      background: #f3f4ff;
+      background: rgba(239, 242, 255, 0.9);
     }
 
-    .emotion-matrix tbody tr:hover {
-      background: #e5ebff;
-      transition: background 0.15s ease-out;
+    .emotion-matrix tbody tr:last-child td {
+      border-bottom: none;
     }
 
     .emotion-matrix td {
-      padding: 9px 4px;
+      padding: 10px 4px;
       text-align: center;
+      border-bottom: 1px solid #e5e7fb;
     }
 
     .emotion-row-label {
@@ -536,7 +259,7 @@
       font-weight: 500;
       color: #111827;
       white-space: nowrap;
-      padding-left: 14px;
+      padding-left: 16px;
     }
 
     .emotion-matrix input[type="radio"] {
@@ -566,12 +289,10 @@
       transition: all 0.15s ease-out;
     }
 
-    /* 선택됐을 때 */
     input[type="radio"]:checked + .emotion-dot {
       background: radial-gradient(circle at 30% 0, #f9a8d4 0, #6366f1 45%, #4f46e5 100%);
       border-color: transparent;
-      color: #ffffff;
-      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.45);
+      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.5);
       transform: translateY(-1px);
     }
 
@@ -579,16 +300,16 @@
       background: #ffffff;
     }
 
-    /* hover */
     .emotion-dot:hover {
       border-color: #818cf8;
       transform: translateY(-1px);
     }
 
+    /* 제출 버튼 */
     .buttons {
       display: flex;
       justify-content: flex-end;
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
     button[type="submit"] {
@@ -625,15 +346,15 @@
       line-height: 1.6;
     }
 
-    /* 모바일 대응 */
+    /* 반응형 */
     @media (max-width: 768px) {
       body {
         padding: 18px 10px;
       }
 
-      .card {
-        padding: 20px 18px 22px;
-        border-radius: 20px;
+      .survey-card {
+        padding: 20px 16px 22px;
+        border-radius: 22px;
       }
 
       header {
@@ -643,8 +364,8 @@
 
       .emoji-wrap {
         margin: 0 auto 8px;
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
       }
 
       h1 {
@@ -666,8 +387,8 @@
     }
 
     @media (max-width: 480px) {
-      .card {
-        padding: 18px 14px 20px;
+      .survey-card {
+        padding: 18px 12px 20px;
       }
 
       h1 {
@@ -681,8 +402,9 @@
   </style>
 </head>
 <body>
-  <div class="shell">
-    <div class="card">
+  <div class="page-shell">
+    <div class="survey-card">
+      <!-- 헤더: 이모티콘 + 제목 -->
       <header>
         <div class="emoji-wrap">
           <img src="emoji1.png" alt="이모티콘" />
@@ -703,7 +425,7 @@
       <hr />
 
       <form id="survey-form">
-        <!-- Q1 -->
+        <!-- Q1: 이모티콘 관련 질문이 헤더 바로 아래로 오도록 -->
         <div class="question-block">
           <div class="question-title">
             Q1. 위 이모티콘은 어떤 감정을 표현한다고 생각하시나요?
@@ -768,42 +490,12 @@
                         <span class="emotion-dot"></span>
                       </label>
                     </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="joy" value="2" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="joy" value="3" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="joy" value="4" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="joy" value="5" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="joy" value="6" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="joy" value="7" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
+                    <td><label><input type="radio" name="joy" value="2" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="joy" value="3" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="joy" value="4" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="joy" value="5" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="joy" value="6" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="joy" value="7" /><span class="emotion-dot"></span></label></td>
                   </tr>
 
                   <!-- 슬픔 -->
@@ -815,42 +507,12 @@
                         <span class="emotion-dot"></span>
                       </label>
                     </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="sadness" value="2" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="sadness" value="3" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="sadness" value="4" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="sadness" value="5" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="sadness" value="6" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
-                    <td>
-                      <label>
-                        <input type="radio" name="sadness" value="7" />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
+                    <td><label><input type="radio" name="sadness" value="2" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="sadness" value="3" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="sadness" value="4" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="sadness" value="5" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="sadness" value="6" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="sadness" value="7" /><span class="emotion-dot"></span></label></td>
                   </tr>
 
                   <!-- 화남 -->
@@ -862,4 +524,141 @@
                         <span class="emotion-dot"></span>
                       </label>
                     </td>
+                    <td><label><input type="radio" name="anger" value="2" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="anger" value="3" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="anger" value="4" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="anger" value="5" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="anger" value="6" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="anger" value="7" /><span class="emotion-dot"></span></label></td>
+                  </tr>
+
+                  <!-- 놀라움 -->
+                  <tr>
+                    <td class="emotion-row-label">놀라움</td>
                     <td>
+                      <label>
+                        <input type="radio" name="surprise" value="1" required />
+                        <span class="emotion-dot"></span>
+                      </label>
+                    </td>
+                    <td><label><input type="radio" name="surprise" value="2" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="surprise" value="3" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="surprise" value="4" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="surprise" value="5" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="surprise" value="6" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="surprise" value="7" /><span class="emotion-dot"></span></label></td>
+                  </tr>
+
+                  <!-- 두려움 -->
+                  <tr>
+                    <td class="emotion-row-label">두려움</td>
+                    <td>
+                      <label>
+                        <input type="radio" name="fear" value="1" required />
+                        <span class="emotion-dot"></span>
+                      </label>
+                    </td>
+                    <td><label><input type="radio" name="fear" value="2" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="fear" value="3" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="fear" value="4" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="fear" value="5" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="fear" value="6" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="fear" value="7" /><span class="emotion-dot"></span></label></td>
+                  </tr>
+
+                  <!-- 혐오 -->
+                  <tr>
+                    <td class="emotion-row-label">혐오</td>
+                    <td>
+                      <label>
+                        <input type="radio" name="disgust" value="1" required />
+                        <span class="emotion-dot"></span>
+                      </label>
+                    </td>
+                    <td><label><input type="radio" name="disgust" value="2" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="disgust" value="3" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="disgust" value="4" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="disgust" value="5" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="disgust" value="6" /><span class="emotion-dot"></span></label></td>
+                    <td><label><input type="radio" name="disgust" value="7" /><span class="emotion-dot"></span></label></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-block">
+          <div class="question-title">
+            Q4. 이 이모티콘의 감정을 판단할 때 어떤 요소가 가장 중요했다고 느끼셨나요?
+            <span class="required">*</span>
+          </div>
+          <div class="question-desc">
+            연구 설계에 맞게 보기 내용을 수정해서 사용할 수 있습니다.
+          </div>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q4" value="1" required />
+              <span>1. 입 모양</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="2" />
+              <span>2. 눈 모양</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="3" />
+              <span>3. 얼굴 전체 표정(형태)</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="4" />
+              <span>4. 색감·톤(배경, 얼굴색 등)</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="5" />
+              <span>5. 기타</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="submit">응답 제출하기</button>
+        </div>
+      </form>
+
+      <div id="thank-you">
+        <h2>응답해 주셔서 감사합니다 😊</h2>
+        <p>
+          설문 응답이 정상적으로 전송되었습니다.<br />
+          (현재는 테스트 버전이라, 브라우저 개발자 도구 Console에서 응답 내용을 확인할 수 있습니다.)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("survey-form");
+    const thank = document.getElementById("thank-you");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {};
+      for (const [key, value] of formData.entries()) {
+        if (data[key]) {
+          if (!Array.isArray(data[key])) data[key] = [data[key]];
+          data[key].push(value);
+        } else {
+          data[key] = value;
+        }
+      }
+
+      console.log("응답 데이터:", data);
+
+      form.style.display = "none";
+      thank.style.display = "block";
+    });
+  </script>
+</body>
+</html>
