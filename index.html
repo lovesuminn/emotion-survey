@@ -125,28 +125,25 @@
       margin-bottom: 10px;
     }
 
+    .emoji-top-box {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid rgba(209, 213, 245, 0.9);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(148, 163, 255, 0.18);
+    }
 
-.emoji-top-box {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-  /* 배경색 제거하고 흰색 카드 + 테두리만 */
-  background: #ffffff;
-  border: 1px solid rgba(209, 213, 245, 0.9);
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 6px 14px rgba(148, 163, 255, 0.18);
-}
-
-.emoji-top-box img {
-  width: 86%;
-  height: auto;
-  display: block;
-}
-
+    .emoji-top-box img {
+      width: 86%;
+      height: auto;
+      display: block;
+    }
 
     .emoji-inline {
       display: flex;
@@ -308,6 +305,40 @@
     .emotion-dot:hover {
       border-color: #818cf8;
       transform: translateY(-1px);
+    }
+
+    /* 3-2 감정 0~7 라인 스타일 */
+    .emotion-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .emotion-row {
+      display: grid;
+      grid-template-columns: 80px repeat(8, 1fr); /* 감정명 + 0~7 */
+      align-items: center;
+      padding: 6px 4px;
+    }
+
+    .emotion-row:nth-child(even) {
+      background: rgba(238, 242, 255, 0.6);
+    }
+
+    .emotion-label {
+      font-size: 0.9rem;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    .row-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .row-center input {
+      display: none;
     }
 
     .buttons {
@@ -744,26 +775,36 @@
             </div>
           </div>
 
-          <!-- 3-2 여섯 감정 (각각 1–7) -->
+          <!-- 3-2 여섯 감정 (0–7) -->
           <div class="question-block">
             <div class="question-title">
               3-2. (이모티콘 ${i}) 이 이모티콘이 다음 감정을 얼마나 표현한다고 느끼십니까?
               <span class="required">*</span>
             </div>
-            <div class="question-desc">1 = 전혀 느껴지지 않는다 ~ 7 = 매우 강하게 느껴진다</div>
+            <div class="question-desc">0 = 전혀 느껴지지 않는다 ~ 7 = 매우 강하게 느껴진다</div>
 
-            ${["기쁨","슬픔","화남","놀라움","두려움","혐오"].map((emo, emoIdx) => `
-              <div class="question-desc" style="margin-top:${emoIdx===0? "6":"10"}px; margin-bottom:4px;">${emo}</div>
-              <div class="likert-row">
-                ${[1,2,3,4,5,6,7].map(v => `
-                  <label class="likert-item">
-                    <input type="radio" name="${emo}_${i}" value="${v}" ${v===1?'required':''}/>
-                    <span class="emotion-dot"></span>
-                    <span class="likert-number">${v}</span>
-                  </label>
+            <div class="emotion-table">
+              <!-- header -->
+              <div class="emotion-row" style="background: transparent;">
+                <div></div>
+                ${[0,1,2,3,4,5,6,7].map(v => `
+                  <div class="row-center">${v}</div>
                 `).join("")}
               </div>
-            `).join("")}
+
+              <!-- rows -->
+              ${["기쁨","슬픔","화남","놀라움","두려움","혐오"].map((emo) => `
+                <div class="emotion-row">
+                  <div class="emotion-label">${emo}</div>
+                  ${[0,1,2,3,4,5,6,7].map(v => `
+                    <label class="row-center">
+                      <input type="radio" name="${emo}_${i}" value="${v}" ${v===0?'required':''}/>
+                      <span class="emotion-dot"></span>
+                    </label>
+                  `).join("")}
+                </div>
+              `).join("")}
+            </div>
           </div>
 
           <!-- 3-3 복합감정 여부 -->
