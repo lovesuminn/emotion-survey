@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>이모티콘 감정 판단 설문</title>
+  <title>카카오 이모티콘 설문</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- 한글 웹폰트 -->
@@ -44,7 +44,6 @@
       position: relative;
     }
 
-    /* 헤더 (텍스트만) */
     header {
       display: flex;
       flex-direction: column;
@@ -95,16 +94,30 @@
       margin: 18px 0 20px;
     }
 
-    /* 이모티콘을 감싸는 sticky 래퍼 */
+    /* 세션 제목 */
+    .session-title {
+      margin: 20px 0 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1f2933;
+    }
+
+    .session-subtitle {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    /* 이모티콘 sticky 영역 (Session 2–3에서 사용) */
     .sticky-emoji-wrapper {
       position: sticky;
-      top: 10px;          /* 상단에서 떨어진 위치 */
+      top: 10px;
       z-index: 20;
       padding-bottom: 14px;
       background: linear-gradient(to bottom, #ffffff 70%, rgba(255,255,255,0));
+      margin-bottom: 10px;
     }
 
-    /* Q1 위에 들어가는 이모티콘 박스 (크게) */
     .emoji-top-box {
       width: 140px;
       height: 140px;
@@ -124,7 +137,7 @@
       display: block;
     }
 
-    /* 질문 블록 공통 */
+    /* 질문 공통 스타일 */
     .question-block {
       padding: 16px 18px 18px;
       border-radius: 22px;
@@ -134,10 +147,8 @@
       box-shadow: 0 6px 16px rgba(148, 163, 255, 0.18);
     }
 
-    /* Q1은 배경 흰색 + 테두리만 유지 */
-    .question-block.q1 {
+    .question-block.white {
       background: #ffffff;
-      border: 1px solid rgba(209, 213, 245, 0.9);
       box-shadow: 0 4px 10px rgba(148, 163, 255, 0.15);
     }
 
@@ -207,7 +218,74 @@
       background: #eef2ff;
     }
 
-    /* 감정 매트릭스 */
+    /* Likert 공통 (1–7 / 0–7) */
+    .likert-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .likert-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      color: #6b7280;
+      cursor: pointer;
+    }
+
+    .likert-item input {
+      display: none;
+    }
+
+    .likert-number {
+      font-size: 0.72rem;
+    }
+
+    /* emotion-dot : 동그라미 라디오 버튼 스타일 재사용 */
+    .emotion-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid #c7d2fe;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+      position: relative;
+    }
+
+    .emotion-dot::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      transition: all 0.15s ease-out;
+    }
+
+    input[type="radio"]:checked + .emotion-dot {
+      background: radial-gradient(circle at 30% 0, #f9a8d4 0, #6366f1 45%, #4f46e5 100%);
+      border-color: transparent;
+      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.5);
+      transform: translateY(-1px);
+    }
+
+    input[type="radio"]:checked + .emotion-dot::before {
+      background: #ffffff;
+    }
+
+    .emotion-dot:hover {
+      border-color: #818cf8;
+      transform: translateY(-1px);
+    }
+
+    /* 감정 매트릭스 (6가지 기본 정서) */
     .emotion-matrix-wrapper {
       margin-top: 10px;
       border-radius: 18px;
@@ -261,10 +339,6 @@
       background: rgba(239, 242, 255, 0.9);
     }
 
-    .emotion-matrix tbody tr:last-child td {
-      border-bottom: none;
-    }
-
     .emotion-matrix td {
       padding: 10px 4px;
       text-align: center;
@@ -278,76 +352,6 @@
       color: #111827;
       white-space: nowrap;
       padding-left: 16px;
-    }
-
-    .emotion-matrix input[type="radio"] {
-      display: none;
-    }
-
-    .emotion-dot {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      border: 1px solid #c7d2fe;
-      background: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.15s ease-out;
-      position: relative;
-    }
-
-    .emotion-dot::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      transition: all 0.15s ease-out;
-    }
-
-    input[type="radio"]:checked + .emotion-dot {
-      background: radial-gradient(circle at 30% 0, #f9a8d4 0, #6366f1 45%, #4f46e5 100%);
-      border-color: transparent;
-      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.5);
-      transform: translateY(-1px);
-    }
-
-    input[type="radio"]:checked + .emotion-dot::before {
-      background: #ffffff;
-    }
-
-    .emotion-dot:hover {
-      border-color: #818cf8;
-      transform: translateY(-1px);
-    }
-
-    /* 1~7 Likert 공통 스타일 (Q5, Q6) */
-    .likert-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 4px;
-      margin-top: 4px;
-    }
-
-    .likert-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.75rem;
-      color: #6b7280;
-      cursor: pointer;
-    }
-
-    .likert-item input {
-      display: none;
-    }
-
-    .likert-number {
-      font-size: 0.72rem;
     }
 
     /* 제출 버튼 */
@@ -391,7 +395,6 @@
       line-height: 1.6;
     }
 
-    /* 반응형 */
     @media (max-width: 768px) {
       body {
         padding: 18px 10px;
@@ -447,70 +450,290 @@
 <body>
   <div class="page-shell">
     <div class="survey-card">
-      <!-- 헤더: 제목/설명 -->
       <header>
         <div class="title-area">
           <div class="badge">
             <span class="badge-dot"></span>
-            <span>Emotion · Emoji Study</span>
+            <span>KakaoTalk · Emoji Study</span>
           </div>
-          <h1>이모티콘 감정 판단 설문</h1>
+          <h1>카카오 이모티콘 사용 및 감정 판단 설문</h1>
           <p class="subtitle">
-            아래 문항은 위 이모티콘이 표현하는 감정을 평가하는 질문입니다.<br />
-            <strong>* 표시가 있는 문항은 필수로 응답</strong>해 주세요.
+            이 설문은 카카오 이모티콘 사용 경험과 이모티콘이 표현하는 감정에 대한 판단을 조사하기 위한 것입니다.<br />
+            <strong>* 표시된 문항은 필수 응답</strong>입니다.
           </p>
         </div>
       </header>
 
       <hr />
 
-      <!-- 이모티콘 이미지: Q1 바로 위, sticky로 상단 고정 -->
-      <div class="sticky-emoji-wrapper">
-        <div class="emoji-top-box">
-          <img src="emoji1.png" alt="이모티콘" />
-        </div>
-      </div>
-
       <form id="survey-form">
-        <!-- Q1 -->
-        <div class="question-block q1">
+        <!-- SESSION 1 -->
+        <div class="session-title">Session 1. 인구통계 및 카카오톡 사용 경험</div>
+
+        <!-- 1-1 성별 -->
+        <div class="question-block">
           <div class="question-title">
-            Q1. 위 이모티콘은 어떤 감정을 표현한다고 생각하시나요?
-            <span class="required">*</span>
+            1-1. 성별 <span class="required">*</span>
+          </div>
+          <div class="options">
+            <label class="option"><input type="radio" name="gender" value="남" required /> <span>남</span></label>
+            <label class="option"><input type="radio" name="gender" value="여" /> <span>여</span></label>
+            <label class="option"><input type="radio" name="gender" value="기타" /> <span>기타</span></label>
+            <label class="option"><input type="radio" name="gender" value="응답하고 싶지 않음" /> <span>응답하고 싶지 않음</span></label>
+          </div>
+        </div>
+
+        <!-- 1-2 연령대 -->
+        <div class="question-block">
+          <div class="question-title">
+            1-2. 연령대 <span class="required">*</span>
+          </div>
+          <div class="options">
+            <label class="option"><input type="radio" name="age" value="20대" required /> <span>20대</span></label>
+            <label class="option"><input type="radio" name="age" value="30대" /> <span>30대</span></label>
+            <label class="option"><input type="radio" name="age" value="40대" /> <span>40대</span></label>
+            <label class="option"><input type="radio" name="age" value="50대" /> <span>50대</span></label>
+            <label class="option"><input type="radio" name="age" value="60대 이상" /> <span>60대 이상</span></label>
+          </div>
+        </div>
+
+        <!-- 1-3 국적 -->
+        <div class="question-block">
+          <div class="question-title">
+            1-3. 국적 <span class="required">*</span>
+          </div>
+          <div class="options">
+            <label class="option"><input type="radio" name="nationality" value="한국" required /> <span>한국</span></label>
+            <label class="option"><input type="radio" name="nationality" value="기타" /> <span>기타 (직접 입력)</span></label>
+          </div>
+          <div class="question-desc">위 문항에서 ‘기타’를 선택한 경우, 아래에 국적을 적어 주세요.</div>
+          <textarea name="nationality_other"></textarea>
+        </div>
+
+        <!-- 1-4 한국 거주 기간 (외국인만) -->
+        <div class="question-block">
+          <div class="question-title">
+            1-4. 한국 거주 기간 (외국인만 응답)
+          </div>
+          <div class="options">
+            <label class="option"><input type="radio" name="kr_stay" value="없음" /> <span>없음</span></label>
+            <label class="option"><input type="radio" name="kr_stay" value="6개월 미만" /> <span>6개월 미만</span></label>
+            <label class="option"><input type="radio" name="kr_stay" value="6개월–1년" /> <span>6개월–1년</span></label>
+            <label class="option"><input type="radio" name="kr_stay" value="1–3년" /> <span>1–3년</span></label>
+            <label class="option"><input type="radio" name="kr_stay" value="3년 이상" /> <span>3년 이상</span></label>
+          </div>
+        </div>
+
+        <!-- 1-5 한국어 능력 (외국인만) -->
+        <div class="question-block">
+          <div class="question-title">
+            1-5. 한국어 능력 (외국인만, 1–7 척도)
+          </div>
+          <div class="question-desc">각 영역별로 본인의 한국어 능력을 평가해 주세요. (1 = 매우 낮음, 7 = 매우 높음)</div>
+
+          <!-- 말하기 -->
+          <div class="question-desc" style="margin-top:4px; margin-bottom:4px;">말하기</div>
+          <div class="likert-row">
+            <!-- 1~7 -->
+            <!-- 말하기 -->
+            <label class="likert-item">
+              <input type="radio" name="ko_speaking" value="1" />
+              <span class="emotion-dot"></span><span class="likert-number">1</span>
+            </label>
+            <label class="likert-item"><input type="radio" name="ko_speaking" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="ko_speaking" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="ko_speaking" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="ko_speaking" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="ko_speaking" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="ko_speaking" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+
+          <!-- 듣기 -->
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">듣기</div>
+          <div class="likert-row">
+            <label class="likert-item">
+              <input type="radio" name="ko_listening" value="1" />
+              <span class="emotion-dot"></span><span class="likert-number">1</span>
+            </label>
+            <label class="likert-item"><input type="radio" name="ko_listening" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="ko_listening" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="ko_listening" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="ko_listening" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="ko_listening" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="ko_listening" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+
+          <!-- 읽기 -->
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">읽기</div>
+          <div class="likert-row">
+            <label class="likert-item">
+              <input type="radio" name="ko_reading" value="1" />
+              <span class="emotion-dot"></span><span class="likert-number">1</span>
+            </label>
+            <label class="likert-item"><input type="radio" name="ko_reading" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="ko_reading" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="ko_reading" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="ko_reading" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="ko_reading" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="ko_reading" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+
+          <!-- 쓰기 -->
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">쓰기</div>
+          <div class="likert-row">
+            <label class="likert-item">
+              <input type="radio" name="ko_writing" value="1" />
+              <span class="emotion-dot"></span><span class="likert-number">1</span>
+            </label>
+            <label class="likert-item"><input type="radio" name="ko_writing" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="ko_writing" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="ko_writing" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="ko_writing" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="ko_writing" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="ko_writing" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+        </div>
+
+        <!-- 1-6 카카오톡 사용 여부 -->
+        <div class="question-block">
+          <div class="question-title">
+            1-6. 카카오톡 사용 여부 <span class="required">*</span>
+          </div>
+          <div class="options">
+            <label class="option"><input type="radio" name="kakao_use" value="예" required /> <span>예</span></label>
+            <label class="option"><input type="radio" name="kakao_use" value="아니오" /> <span>아니오</span></label>
+          </div>
+        </div>
+
+        <!-- 1-7 카카오 이모티콘 사용 빈도 -->
+        <div class="question-block">
+          <div class="question-title">
+            1-7. 카카오 이모티콘 사용 빈도 (1–7 척도) <span class="required">*</span>
+          </div>
+          <div class="question-desc">1 = 전혀 사용하지 않는다 ~ 7 = 자주 사용한다</div>
+          <div class="likert-row">
+            <label class="likert-item">
+              <input type="radio" name="emoji_freq" value="1" required />
+              <span class="emotion-dot"></span><span class="likert-number">1</span>
+            </label>
+            <label class="likert-item"><input type="radio" name="emoji_freq" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_freq" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_freq" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_freq" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_freq" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_freq" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+        </div>
+
+        <!-- 1-8 하루 평균 이모티콘 사용량 -->
+        <div class="question-block">
+          <div class="question-title">
+            1-8. 하루 평균 이모티콘 사용량 <span class="required">*</span>
+          </div>
+          <div class="options">
+            <label class="option"><input type="radio" name="emoji_amount" value="0–2회" required /> <span>0–2회</span></label>
+            <label class="option"><input type="radio" name="emoji_amount" value="3–5회" /> <span>3–5회</span></label>
+            <label class="option"><input type="radio" name="emoji_amount" value="6–10회" /> <span>6–10회</span></label>
+            <label class="option"><input type="radio" name="emoji_amount" value="10회 이상" /> <span>10회 이상</span></label>
+          </div>
+        </div>
+
+        <!-- 1-9 유료 이모티콘 구매 경험 -->
+        <div class="question-block">
+          <div class="question-title">
+            1-9. 카카오 이모티콘을 유료로 구매한 경험이 있습니까? <span class="required">*</span>
+          </div>
+          <div class="options">
+            <label class="option"><input type="radio" name="emoji_paid" value="예" required /> <span>예</span></label>
+            <label class="option"><input type="radio" name="emoji_paid" value="아니오" /> <span>아니오</span></label>
+          </div>
+        </div>
+
+        <!-- 1-10 유료 이모티콘을 구매하는 이유 -->
+        <div class="question-block">
+          <div class="question-title">
+            1-10. 유료 이모티콘을 구매하는 이유는 무엇인가요? (1-9에서 ‘예’ 응답자만) 
+          </div>
+          <div class="question-desc">해당되는 이유를 모두 선택해 주세요.</div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="emoji_paid_reason" value="감정 표현을 더 정확히 하기 위해" /> <span>감정 표현을 더 정확히 하기 위해</span></label>
+            <label class="option"><input type="checkbox" name="emoji_paid_reason" value="상대와 친밀감을 높이기 위해" /> <span>상대와 친밀감을 높이기 위해</span></label>
+            <label class="option"><input type="checkbox" name="emoji_paid_reason" value="캐릭터/디자인이 마음에 들어서" /> <span>캐릭터/디자인이 마음에 들어서</span></label>
+            <label class="option"><input type="checkbox" name="emoji_paid_reason" value="특정 상황에 맞춰 사용하기 위해" /> <span>특정 상황에 맞춰 사용하기 위해</span></label>
+            <label class="option"><input type="checkbox" name="emoji_paid_reason" value="기타" /> <span>기타</span></label>
+          </div>
+        </div>
+
+        <!-- SESSION 2 & 3 : 한 이모티콘에 대한 판단 -->
+        <div class="session-title">Session 2–3. 이모티콘 감정 및 이해도 판단</div>
+        <div class="session-subtitle">
+          아래 세션에서는 무작위로 제시되는 카카오 이모티콘 1개에 대해 감정을 평가합니다.
+        </div>
+
+        <!-- sticky emoji -->
+        <div class="sticky-emoji-wrapper">
+          <div class="emoji-top-box">
+            <img id="emoji-img" src="emoji01.png" alt="이모티콘" />
+          </div>
+        </div>
+
+        <!-- 2. 주관식 감정 -->
+        <div class="question-block white">
+          <div class="question-title">
+            2. 위 이모티콘은 어떤 감정을 표현하고 있다고 생각하나요? <span class="required">*</span>
           </div>
           <div class="question-desc">
             예: 기쁨, 놀라움, 기대, 복합 감정 등 자유롭게 적어 주세요.
           </div>
-          <textarea name="q1" required></textarea>
+          <textarea name="s2_emotion_free" required></textarea>
         </div>
 
-        <!-- Q2 -->
+        <!-- 3-1 valence, arousal -->
         <div class="question-block">
           <div class="question-title">
-            Q2. 이 이모티콘에서 두 가지 이상의 감정이 동시에 느껴졌나요?
-            <span class="required">*</span>
+            3-1. 이 이모티콘의 전반적인 느낌을 평가해 주세요. <span class="required">*</span>
           </div>
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q2" value="yes" required />
-              <span>네, 두 가지 이상 느껴졌습니다.</span>
+          <div class="question-desc">각 항목에 대해 1~7 사이에서 선택해 주세요.</div>
+
+          <div class="question-desc" style="margin-top:4px; margin-bottom:4px;">
+            (1) Valence: 부정적 &lt;–&gt; 긍정적
+          </div>
+          <div class="likert-row">
+            <label class="likert-item">
+              <input type="radio" name="valence" value="1" required />
+              <span class="emotion-dot"></span><span class="likert-number">1</span>
             </label>
-            <label class="option">
-              <input type="radio" name="q2" value="no" />
-              <span>아니요, 한 가지 감정만 느껴졌습니다.</span>
+            <label class="likert-item"><input type="radio" name="valence" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="valence" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="valence" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="valence" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="valence" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="valence" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">
+            (2) Arousal: 매우 차분함 &lt;–&gt; 매우 흥분됨
+          </div>
+          <div class="likert-row">
+            <label class="likert-item">
+              <input type="radio" name="arousal" value="1" required />
+              <span class="emotion-dot"></span><span class="likert-number">1</span>
             </label>
+            <label class="likert-item"><input type="radio" name="arousal" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="arousal" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="arousal" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="arousal" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="arousal" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="arousal" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
           </div>
         </div>
 
-        <!-- Q3: 감정 매트릭스 -->
+        <!-- 3-2 여섯 기본 정서 -->
         <div class="question-block">
           <div class="question-title">
-            Q3. 아래 각 감정에 대해 이 이모티콘에서 얼마나 느껴졌는지 평가해 주세요.
-            <span class="required">*</span>
+            3-2. 이 이모티콘이 다음 감정을 얼마나 표현한다고 느끼십니까? <span class="required">*</span>
           </div>
-          <div class="question-desc">
-            1 = 전혀 느껴지지 않는다 ~ 7 = 매우 강하게 느껴진다
-          </div>
+          <div class="question-desc">1 = 전혀 느껴지지 않는다 ~ 7 = 매우 강하게 느껴진다</div>
 
           <div class="emotion-matrix-wrapper">
             <div class="matrix-scroll">
@@ -518,25 +741,14 @@
                 <thead>
                   <tr>
                     <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th>
                   </tr>
                 </thead>
                 <tbody>
                   <!-- 기쁨 -->
                   <tr>
                     <td class="emotion-row-label">기쁨</td>
-                    <td>
-                      <label>
-                        <input type="radio" name="joy" value="1" required />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
+                    <td><label><input type="radio" name="joy" value="1" required /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="joy" value="2" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="joy" value="3" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="joy" value="4" /><span class="emotion-dot"></span></label></td>
@@ -548,12 +760,7 @@
                   <!-- 슬픔 -->
                   <tr>
                     <td class="emotion-row-label">슬픔</td>
-                    <td>
-                      <label>
-                        <input type="radio" name="sadness" value="1" required />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
+                    <td><label><input type="radio" name="sadness" value="1" required /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="sadness" value="2" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="sadness" value="3" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="sadness" value="4" /><span class="emotion-dot"></span></label></td>
@@ -565,12 +772,7 @@
                   <!-- 화남 -->
                   <tr>
                     <td class="emotion-row-label">화남</td>
-                    <td>
-                      <label>
-                        <input type="radio" name="anger" value="1" required />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
+                    <td><label><input type="radio" name="anger" value="1" required /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="anger" value="2" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="anger" value="3" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="anger" value="4" /><span class="emotion-dot"></span></label></td>
@@ -582,12 +784,7 @@
                   <!-- 놀라움 -->
                   <tr>
                     <td class="emotion-row-label">놀라움</td>
-                    <td>
-                      <label>
-                        <input type="radio" name="surprise" value="1" required />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
+                    <td><label><input type="radio" name="surprise" value="1" required /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="surprise" value="2" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="surprise" value="3" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="surprise" value="4" /><span class="emotion-dot"></span></label></td>
@@ -599,12 +796,7 @@
                   <!-- 두려움 -->
                   <tr>
                     <td class="emotion-row-label">두려움</td>
-                    <td>
-                      <label>
-                        <input type="radio" name="fear" value="1" required />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
+                    <td><label><input type="radio" name="fear" value="1" required /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="fear" value="2" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="fear" value="3" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="fear" value="4" /><span class="emotion-dot"></span></label></td>
@@ -616,12 +808,7 @@
                   <!-- 혐오 -->
                   <tr>
                     <td class="emotion-row-label">혐오</td>
-                    <td>
-                      <label>
-                        <input type="radio" name="disgust" value="1" required />
-                        <span class="emotion-dot"></span>
-                      </label>
-                    </td>
+                    <td><label><input type="radio" name="disgust" value="1" required /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="disgust" value="2" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="disgust" value="3" /><span class="emotion-dot"></span></label></td>
                     <td><label><input type="radio" name="disgust" value="4" /><span class="emotion-dot"></span></label></td>
@@ -635,194 +822,261 @@
           </div>
         </div>
 
-        <!-- Q4 -->
+        <!-- 3-3 복합감정 여부 -->
         <div class="question-block">
           <div class="question-title">
-            Q4. 이 이모티콘의 감정을 판단할 때 어떤 요소가 가장 중요했다고 느끼셨나요?
-            <span class="required">*</span>
-          </div>
-          <div class="question-desc">
-            연구 설계에 맞게 보기 내용을 수정해서 사용할 수 있습니다.
+            3-3. 이 이모티콘에서 두 가지 이상의 감정이 동시에 느껴졌나요? <span class="required">*</span>
           </div>
           <div class="options">
-            <label class="option">
-              <input type="radio" name="q4" value="1" required />
-              <span>1. 입 모양</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="2" />
-              <span>2. 눈 모양</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="3" />
-              <span>3. 얼굴 전체 표정(형태)</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="4" />
-              <span>4. 색감·톤(배경, 얼굴색 등)</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="5" />
-              <span>5. 기타</span>
-            </label>
+            <label class="option"><input type="radio" name="multi_emotion" value="예" required /> <span>예</span></label>
+            <label class="option"><input type="radio" name="multi_emotion" value="아니오" /> <span>아니오</span></label>
           </div>
         </div>
 
-        <!-- Q5: 의미 이해 어려움 (1-7) -->
+        <!-- 3-4 판단 기준 요소 -->
         <div class="question-block">
           <div class="question-title">
-            Q5. 이 이모티콘의 의미를 이해하는 데 어려움이 있었나요?
-            <span class="required">*</span>
-          </div>
-          <div class="question-desc">
-            1 = 전혀 어려움이 없었다 ~ 7 = 매우 어려웠다
-          </div>
-          <div class="likert-row">
-            <!-- 1~7 공통: emotion-dot 재사용 -->
-            <label class="likert-item">
-              <input type="radio" name="q5_difficulty" value="1" required />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">1</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q5_difficulty" value="2" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">2</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q5_difficulty" value="3" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">3</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q5_difficulty" value="4" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">4</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q5_difficulty" value="5" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">5</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q5_difficulty" value="6" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">6</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q5_difficulty" value="7" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">7</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Q6: 판단 자신감 (1-7) -->
-        <div class="question-block">
-          <div class="question-title">
-            Q6. 이 이모티콘을 판단하는 데 얼마나 자신 있었나요?
-            <span class="required">*</span>
-          </div>
-          <div class="question-desc">
-            1 = 전혀 자신 없었다 ~ 7 = 매우 자신 있었다
-          </div>
-          <div class="likert-row">
-            <label class="likert-item">
-              <input type="radio" name="q6_confidence" value="1" required />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">1</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q6_confidence" value="2" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">2</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q6_confidence" value="3" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">3</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q6_confidence" value="4" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">4</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q6_confidence" value="5" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">5</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q6_confidence" value="6" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">6</span>
-            </label>
-            <label class="likert-item">
-              <input type="radio" name="q6_confidence" value="7" />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">7</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Q7: 가장 적절한 상황 -->
-        <div class="question-block">
-          <div class="question-title">
-            Q7. 이 이모티콘을 사용하는 데 가장 적절한 상황은 무엇이라고 생각하시나요?
-            <span class="required">*</span>
-          </div>
-          <div class="question-desc">
-            아래 보기 중에서 가장 잘 어울리는 상황 하나를 선택해 주세요.
+            3-4. 이 이모티콘의 감정을 판단하는 데 어떤 요소가 가장 중요하다고 생각하셨나요? <span class="required">*</span>
           </div>
           <div class="options">
-            <label class="option">
-              <input type="radio" name="q7_situation" value="시험에 합격했을 때" required />
-              <span>시험에 합격했을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="교수님께 칭찬 받았을 때" />
-              <span>교수님께 칭찬 받았을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="연인과 헤어졌을 때" />
-              <span>연인과 헤어졌을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="열심히 준비한 일이 잘 되지 않을 때" />
-              <span>열심히 준비한 일이 잘 되지 않을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="새치기를 당했을 때" />
-              <span>새치기를 당했을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="과제를 실수로 지워버렸을 때" />
-              <span>과제를 실수로 지워버렸을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="갑자기 큰 소리를 들었을 때" />
-              <span>갑자기 큰 소리를 들었을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="뒤에서 누가 갑자기 말 걸었을 때" />
-              <span>뒤에서 누가 갑자기 말 걸었을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="중요한 발표를 앞두었을 때" />
-              <span>중요한 발표를 앞두었을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="밤길을 혼자 걷다 이상한 소리를 들었을 때" />
-              <span>밤길을 혼자 걷다 이상한 소리를 들었을 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="쓰레기에서 악취가 올라올 때" />
-              <span>쓰레기에서 악취가 올라올 때</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q7_situation" value="곰팡이 핀 음식을 봤을 때" />
-              <span>곰팡이 핀 음식을 봤을 때</span>
-            </label>
+            <label class="option"><input type="radio" name="key_cue" value="눈모양" required /> <span>눈모양</span></label>
+            <label class="option"><input type="radio" name="key_cue" value="입모양" /> <span>입모양</span></label>
+            <label class="option"><input type="radio" name="key_cue" value="몸짓" /> <span>몸짓</span></label>
+            <label class="option"><input type="radio" name="key_cue" value="외부 요소" /> <span>외부 요소(배경, 이펙트 등)</span></label>
+            <label class="option"><input type="radio" name="key_cue" value="기타" /> <span>기타</span></label>
+          </div>
+        </div>
+
+        <!-- 3-5 의미 이해 어려움 -->
+        <div class="question-block">
+          <div class="question-title">
+            3-5. 이 이모티콘의 의미를 이해하는 데 어려움이 있었나요? <span class="required">*</span>
+          </div>
+          <div class="question-desc">1 = 전혀 어렵지 않았다 ~ 7 = 매우 어려웠다</div>
+          <div class="likert-row">
+            <label class="likert-item"><input type="radio" name="emoji_difficulty" value="1" required /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_difficulty" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_difficulty" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_difficulty" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_difficulty" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_difficulty" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_difficulty" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+        </div>
+
+        <!-- 3-6 감정 명확성 -->
+        <div class="question-block">
+          <div class="question-title">
+            3-6. 이 이모티콘이 표현하는 감정이 명확하다고 느끼셨나요? <span class="required">*</span>
+          </div>
+          <div class="question-desc">1 = 전혀 명확하지 않다 ~ 7 = 매우 명확하다</div>
+          <div class="likert-row">
+            <label class="likert-item"><input type="radio" name="emoji_clarity" value="1" required /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_clarity" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_clarity" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_clarity" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_clarity" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_clarity" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="emoji_clarity" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+        </div>
+
+        <!-- 3-7 누구에게 사용할 수 있는지 (복수 선택) -->
+        <div class="question-block">
+          <div class="question-title">
+            3-7. 이 이모티콘을 누구에게 사용할 수 있다고 생각하나요? (복수 선택 가능)
+            <span class="required">*</span>
+          </div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="emoji_target" value="부모님" required /> <span>부모님</span></label>
+            <label class="option"><input type="checkbox" name="emoji_target" value="윗사람" /> <span>윗사람(직장 상사/교수님 등)</span></label>
+            <label class="option"><input type="checkbox" name="emoji_target" value="친구" /> <span>친구</span></label>
+            <label class="option"><input type="checkbox" name="emoji_target" value="아랫사람" /> <span>아랫사람(후배/동생)</span></label>
+            <label class="option"><input type="checkbox" name="emoji_target" value="모르는 사람/온라인 상대" /> <span>모르는 사람/온라인 상대</span></label>
+            <label class="option"><input type="checkbox" name="emoji_target" value="누구에게나 사용할 수 있다" /> <span>누구에게나 사용할 수 있다</span></label>
+          </div>
+        </div>
+
+        <!-- 3-8 상황 판단 -->
+        <div class="question-block">
+          <div class="question-title">
+            3-8. 이 이모티콘을 가장 적절하게 사용할 수 있는 상황은 무엇인가요?
+            <span class="required">*</span>
+          </div>
+          <div class="question-desc">가장 잘 어울린다고 생각하는 상황을 하나 선택해 주세요.</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="emoji_situation" value="시험에 합격했을 때" required /> <span>시험에 합격했을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="교수님께 칭찬받았을 때" /> <span>교수님께 칭찬받았을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="연인과 헤어졌을 때" /> <span>연인과 헤어졌을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="일이 잘 안 되었을 때" /> <span>일이 잘 안 되었을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="새치기를 당했을 때" /> <span>새치기를 당했을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="과제를 실수로 지웠을 때" /> <span>과제를 실수로 지웠을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="갑자기 큰 소리를 들었을 때" /> <span>갑자기 큰 소리를 들었을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="뒤에서 갑자기 말 걸었을 때" /> <span>뒤에서 갑자기 말 걸었을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="중요한 발표를 앞두었을 때" /> <span>중요한 발표를 앞두었을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="밤길에 이상한 소리가 들렸을 때" /> <span>밤길에 이상한 소리가 들렸을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="쓰레기 악취를 맡았을 때" /> <span>쓰레기 악취를 맡았을 때</span></label>
+            <label class="option"><input type="radio" name="emoji_situation" value="곰팡이 핀 음식을 봤을 때" /> <span>곰팡이 핀 음식을 봤을 때</span></label>
+          </div>
+        </div>
+
+        <!-- SESSION 4 -->
+        <div class="session-title">Session 4. 대화 관계에 따른 이모티콘 사용</div>
+
+        <!-- 4-1 대화 상대별 이모티콘 사용 빈도 -->
+        <div class="question-block">
+          <div class="question-title">
+            4-1. 대화 상대별 이모티콘 사용 빈도 (0–7 척도)
+          </div>
+          <div class="question-desc">0 = 전혀 사용하지 않는다 ~ 7 = 매우 자주 사용한다</div>
+
+          <!-- 부모님 -->
+          <div class="question-desc" style="margin-top:4px; margin-bottom:4px;">부모님</div>
+          <div class="likert-row">
+            <!-- 0~7 -->
+            <label class="likert-item"><input type="radio" name="freq_parent" value="0" /><span class="emotion-dot"></span><span class="likert-number">0</span></label>
+            <label class="likert-item"><input type="radio" name="freq_parent" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="freq_parent" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="freq_parent" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="freq_parent" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="freq_parent" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="freq_parent" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="freq_parent" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+
+          <!-- 윗사람 -->
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">윗사람(직장 상사/교수님 등)</div>
+          <div class="likert-row">
+            <label class="likert-item"><input type="radio" name="freq_senior" value="0" /><span class="emotion-dot"></span><span class="likert-number">0</span></label>
+            <label class="likert-item"><input type="radio" name="freq_senior" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="freq_senior" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="freq_senior" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="freq_senior" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="freq_senior" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="freq_senior" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="freq_senior" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+
+          <!-- 친구 -->
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">친구</div>
+          <div class="likert-row">
+            <label class="likert-item"><input type="radio" name="freq_friend" value="0" /><span class="emotion-dot"></span><span class="likert-number">0</span></label>
+            <label class="likert-item"><input type="radio" name="freq_friend" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="freq_friend" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="freq_friend" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="freq_friend" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="freq_friend" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="freq_friend" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="freq_friend" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+
+          <!-- 아랫사람 -->
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">아랫사람(후배/동생)</div>
+          <div class="likert-row">
+            <label class="likert-item"><input type="radio" name="freq_junior" value="0" /><span class="emotion-dot"></span><span class="likert-number">0</span></label>
+            <label class="likert-item"><input type="radio" name="freq_junior" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="freq_junior" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="freq_junior" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="freq_junior" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="freq_junior" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="freq_junior" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="freq_junior" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+
+          <!-- 모르는 사람/온라인 상대 -->
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">모르는 사람/온라인 상대</div>
+          <div class="likert-row">
+            <label class="likert-item"><input type="radio" name="freq_stranger" value="0" /><span class="emotion-dot"></span><span class="likert-number">0</span></label>
+            <label class="likert-item"><input type="radio" name="freq_stranger" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="freq_stranger" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="freq_stranger" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="freq_stranger" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="freq_stranger" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="freq_stranger" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="freq_stranger" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+        </div>
+
+        <!-- 4-2 윗사람에게 사용이 부담스러운지 -->
+        <div class="question-block">
+          <div class="question-title">
+            4-2. 윗사람에게 이모티콘 사용이 부담스럽다고 느끼나요?
+            <span class="required">*</span>
+          </div>
+          <div class="question-desc">1 = 전혀 아니다 ~ 7 = 매우 그렇다</div>
+          <div class="likert-row">
+            <label class="likert-item"><input type="radio" name="senior_burden" value="1" required /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="senior_burden" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="senior_burden" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="senior_burden" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="senior_burden" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="senior_burden" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="senior_burden" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+        </div>
+
+        <!-- 4-3 윗사람에게 어려운 이유 -->
+        <div class="question-block">
+          <div class="question-title">
+            4-3. 윗사람에게 이모티콘 사용이 어렵게 느껴지는 이유는 무엇인가요? (복수 선택 가능)
+          </div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="senior_reason" value="누구에게 써도 되는지 모르겠다" /> <span>누구에게 써도 되는지 모르겠다</span></label>
+            <label class="option"><input type="checkbox" name="senior_reason" value="상대와의 관계·위계가 애매하다" /> <span>상대와의 관계·위계가 애매하다</span></label>
+            <label class="option"><input type="checkbox" name="senior_reason" value="너무 가벼워 보일까 걱정된다" /> <span>너무 가벼워 보일까 걱정된다</span></label>
+            <label class="option"><input type="checkbox" name="senior_reason" value="기분 나쁘게 받아들일까 걱정된다" /> <span>기분 나쁘게 받아들일까 걱정된다</span></label>
+            <label class="option"><input type="checkbox" name="senior_reason" value="정확한 의미/뉘앙스를 모르겠다" /> <span>정확한 의미/뉘앙스를 모르겠다</span></label>
+            <label class="option"><input type="checkbox" name="senior_reason" value="평소 이모티콘 사용이 익숙하지 않다" /> <span>평소 이모티콘 사용이 익숙하지 않다</span></label>
+            <label class="option"><input type="checkbox" name="senior_reason" value="기타" /> <span>기타</span></label>
+          </div>
+        </div>
+
+        <!-- 4-4 아랫사람에게 부담스러운지 -->
+        <div class="question-block">
+          <div class="question-title">
+            4-4. 아랫사람에게 이모티콘 사용이 부담스럽다고 느끼나요?
+            <span class="required">*</span>
+          </div>
+          <div class="question-desc">1 = 전혀 아니다 ~ 7 = 매우 그렇다</div>
+          <div class="likert-row">
+            <label class="likert-item"><input type="radio" name="junior_burden" value="1" required /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
+            <label class="likert-item"><input type="radio" name="junior_burden" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
+            <label class="likert-item"><input type="radio" name="junior_burden" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
+            <label class="likert-item"><input type="radio" name="junior_burden" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
+            <label class="likert-item"><input type="radio" name="junior_burden" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
+            <label class="likert-item"><input type="radio" name="junior_burden" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
+            <label class="likert-item"><input type="radio" name="junior_burden" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
+          </div>
+        </div>
+
+        <!-- 4-5 아랫사람에게 어려운 이유 -->
+        <div class="question-block">
+          <div class="question-title">
+            4-5. 아랫사람에게 이모티콘 사용이 어렵게 느껴지는 이유는 무엇인가요? (복수 선택 가능)
+          </div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="junior_reason" value="누구에게 써도 되는지 모르겠다" /> <span>누구에게 써도 되는지 모르겠다</span></label>
+            <label class="option"><input type="checkbox" name="junior_reason" value="상대와의 관계·위계가 애매하다" /> <span>상대와의 관계·위계가 애매하다</span></label>
+            <label class="option"><input type="checkbox" name="junior_reason" value="너무 가벼워 보일까 걱정된다" /> <span>너무 가벼워 보일까 걱정된다</span></label>
+            <label class="option"><input type="checkbox" name="junior_reason" value="기분 나쁘게 받아들일까 걱정된다" /> <span>기분 나쁘게 받아들일까 걱정된다</span></label>
+            <label class="option"><input type="checkbox" name="junior_reason" value="정확한 의미/뉘앙스를 모르겠다" /> <span>정확한 의미/뉘앙스를 모르겠다</span></label>
+            <label class="option"><input type="checkbox" name="junior_reason" value="평소 이모티콘 사용이 익숙하지 않다" /> <span>평소 이모티콘 사용이 익숙하지 않다</span></label>
+            <label class="option"><input type="checkbox" name="junior_reason" value="기타" /> <span>기타</span></label>
+          </div>
+        </div>
+
+        <!-- 4-6 이모티콘 사용할 때 가장 신경 쓰는 요소 -->
+        <div class="question-block">
+          <div class="question-title">
+            4-6. 이모티콘을 사용할 때 가장 신경 쓰는 요소는 무엇인가요? (복수 선택 가능)
+          </div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="emoji_factor" value="예의/공손함" /> <span>예의/공손함</span></label>
+            <label class="option"><input type="checkbox" name="emoji_factor" value="친근함" /> <span>친근함</span></label>
+            <label class="option"><input type="checkbox" name="emoji_factor" value="상황 적합성" /> <span>상황 적합성</span></label>
+            <label class="option"><input type="checkbox" name="emoji_factor" value="관계 친밀도" /> <span>관계 친밀도</span></label>
+            <label class="option"><input type="checkbox" name="emoji_factor" value="연령 차이" /> <span>연령 차이</span></label>
+            <label class="option"><input type="checkbox" name="emoji_factor" value="문화적 차이" /> <span>문화적 차이</span></label>
           </div>
         </div>
 
@@ -842,6 +1096,20 @@
   </div>
 
   <script>
+    // ---- Session 2–3 이모티콘 랜덤 제시 ----
+    const emojiFiles = [
+      "emoji01.png", "emoji02.png", "emoji03.png", "emoji04.png",
+      "emoji05.png", "emoji06.png", "emoji07.png", "emoji08.png",
+      "emoji09.png", "emoji10.png", "emoji11.png", "emoji12.png"
+    ];
+
+    const emojiImg = document.getElementById("emoji-img");
+    if (emojiImg) {
+      const randomIndex = Math.floor(Math.random() * emojiFiles.length);
+      emojiImg.src = emojiFiles[randomIndex];
+    }
+
+    // ---- 폼 제출 처리 (현재는 콘솔에만 출력) ----
     const form = document.getElementById("survey-form");
     const thank = document.getElementById("thank-you");
 
