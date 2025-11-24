@@ -125,24 +125,28 @@
       margin-bottom: 10px;
     }
 
-    .emoji-top-box {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto;
-      background: radial-gradient(circle at 20% 0, #ffe4f1 0, #ffd3ea 30%, #ffecef 100%);
-      border: 1px solid rgba(244, 114, 182, 0.45);
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
 
-    .emoji-top-box img {
-      width: 82%;
-      height: auto;
-      display: block;
-    }
+.emoji-top-box {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  /* 배경색 제거하고 흰색 카드 + 테두리만 */
+  background: #ffffff;
+  border: 1px solid rgba(209, 213, 245, 0.9);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(148, 163, 255, 0.18);
+}
+
+.emoji-top-box img {
+  width: 86%;
+  height: auto;
+  display: block;
+}
+
 
     .emoji-inline {
       display: flex;
