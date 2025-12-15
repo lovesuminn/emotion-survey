@@ -408,7 +408,7 @@
   // =========================
   // ✅ Apps Script URL
   // =========================
-  const API_URL = "https://script.google.com/macros/s/AKfycbyN80mUdK3FmHwxVBxQMthFnPad9NxLqZuciEki_M8mMTNc8jkrLc_3GE_RLrMH0MrWQg/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbzkn-gNuHfe8QTbBrel_qCR9m6jWG_QdaPWj4XJnCcmHK7GfuysCJQIxYPnpnd5Mbl6nA/exec";
 
   const ENABLE_VALIDATION = false;
 
@@ -464,9 +464,9 @@
 
     await fetch(API_URL, {
       method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(data),
-      keepalive: true,
+    mode: "no-cors",
+    body: JSON.stringify(data),
+    keepalive: true,
     });
   }
 
@@ -718,20 +718,22 @@
     document.getElementById("back-to-step4").addEventListener("click", () => showStep(4));
 
     // 제출
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-      try {
-        await submitToSheet(form);
-        form.style.display = "none";
-        thank.style.display = "block";
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } catch (err) {
-        console.error(err);
-        alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
-      }
+
+      submitToSheet(form);
+
+      form.style.display = "none";
+      thank.style.display = "block";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
   });
 </script>
 
 </body>
 </html>
+
