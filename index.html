@@ -10,41 +10,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+    * { box-sizing: border-box; font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
       padding: 24px 12px;
       background: radial-gradient(circle at top, #ffe4f1 0, #f4f7ff 40%, #e5edff 100%);
     }
     .page-shell { width: 100%; max-width: 980px; display: flex; justify-content: center; }
     .survey-card {
-      width: 100%;
-      background: #fff;
-      border-radius: 28px;
-      padding: 26px 26px 30px;
+      width: 100%; background: #fff; border-radius: 28px; padding: 26px 26px 30px;
       box-shadow: 0 18px 45px rgba(31, 41, 55, 0.16);
-      border: 1px solid rgba(148, 163, 255, 0.55);
-      position: relative;
+      border: 1px solid rgba(148, 163, 255, 0.55); position: relative;
     }
     header { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 11px;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #4f46e5;
-      font-size: 0.72rem;
-      font-weight: 600;
-      margin-bottom: 4px;
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px;
+      background: #eef2ff; color: #4f46e5; font-size: 0.72rem; font-weight: 600; margin-bottom: 4px;
     }
     .badge-dot { width: 7px; height: 7px; border-radius: 999px; background: #4f46e5; }
     h1 { margin: 0 0 4px; font-size: 1.5rem; font-weight: 700; color: #111827; }
@@ -58,24 +39,13 @@
     .step-active { display: block; }
 
     .sticky-emoji-wrapper {
-      position: sticky;
-      top: 10px;
-      z-index: 20;
-      padding-bottom: 14px;
-      background: linear-gradient(to bottom, #ffffff 70%, rgba(255,255,255,0));
-      margin-bottom: 10px;
+      position: sticky; top: 10px; z-index: 20; padding-bottom: 14px;
+      background: linear-gradient(to bottom, #ffffff 70%, rgba(255,255,255,0)); margin-bottom: 10px;
     }
     .emoji-top-box {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-      background: #ffffff;
-      border: 1px solid rgba(209, 213, 245, 0.9);
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      width: 150px; height: 150px; margin: 0 auto; background: #ffffff;
+      border: 1px solid rgba(209, 213, 245, 0.9); border-radius: 24px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
       box-shadow: 0 6px 14px rgba(148, 163, 255, 0.18);
     }
     .emoji-top-box img { width: 86%; height: auto; display: block; }
@@ -84,11 +54,9 @@
     .emoji-block { margin-bottom: 26px; }
 
     .question-block {
-      padding: 16px 18px 18px;
-      border-radius: 22px;
+      padding: 16px 18px 18px; border-radius: 22px;
       background: linear-gradient(145deg, rgba(238, 242, 255, 0.9), rgba(248, 250, 252, 0.95));
-      border: 1px solid rgba(209, 213, 245, 0.9);
-      margin-bottom: 14px;
+      border: 1px solid rgba(209, 213, 245, 0.9); margin-bottom: 14px;
       box-shadow: 0 6px 16px rgba(148, 163, 255, 0.18);
     }
     .question-block.white { background: #ffffff; box-shadow: 0 4px 10px rgba(148, 163, 255, 0.15); }
@@ -96,39 +64,19 @@
     .question-desc { font-size: 0.8rem; color: #6b7280; margin-bottom: 10px; }
 
     input[type="text"], input[type="number"] {
-      width: 100%;
-      padding: 9px 10px;
-      font-size: 0.9rem;
-      border-radius: 12px;
-      border: 1px solid #d4d7f0;
-      outline: none;
-      background: #ffffff;
+      width: 100%; padding: 9px 10px; font-size: 0.9rem; border-radius: 12px;
+      border: 1px solid #d4d7f0; outline: none; background: #ffffff;
     }
     textarea {
-      width: 100%;
-      min-height: 72px;
-      padding: 9px 10px;
-      font-size: 0.9rem;
-      border-radius: 12px;
-      border: 1px solid #d4d7f0;
-      resize: vertical;
-      outline: none;
-      background: #ffffff;
+      width: 100%; min-height: 72px; padding: 9px 10px; font-size: 0.9rem;
+      border-radius: 12px; border: 1px solid #d4d7f0; resize: vertical; outline: none; background: #ffffff;
     }
 
     .options { display: flex; flex-direction: column; gap: 6px; margin-top: 2px; }
     .option {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(243, 244, 255, 0.85);
-      border: 1px solid transparent;
-      font-size: 0.88rem;
-      color: #111827;
-      cursor: pointer;
-      max-width: 100%;
+      display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 999px;
+      background: rgba(243, 244, 255, 0.85); border: 1px solid transparent;
+      font-size: 0.88rem; color: #111827; cursor: pointer; max-width: 100%;
     }
     .option input { accent-color: #4f46e5; }
     .option:hover { border-color: #c7d2fe; background: #eef2ff; }
@@ -142,8 +90,7 @@
     .likert-number { font-size: 0.72rem; }
 
     .emotion-dot {
-      width: 22px; height: 22px; border-radius: 999px;
-      border: 1px solid #c7d2fe; background: #fff;
+      width: 22px; height: 22px; border-radius: 999px; border: 1px solid #c7d2fe; background: #fff;
       display: inline-flex; align-items: center; justify-content: center;
       cursor: pointer; transition: all 0.15s ease-out; position: relative;
     }
@@ -153,8 +100,7 @@
     }
     input[type="radio"]:checked + .emotion-dot {
       background: radial-gradient(circle at 30% 0, #f9a8d4 0, #6366f1 45%, #4f46e5 100%);
-      border-color: transparent;
-      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.5);
+      border-color: transparent; box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.5);
       transform: translateY(-1px);
     }
     input[type="radio"]:checked + .emotion-dot::before { background: #ffffff; }
@@ -162,10 +108,7 @@
 
     .emotion-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
     .emotion-row {
-      display: grid;
-      grid-template-columns: 80px repeat(8, 1fr);
-      align-items: center;
-      padding: 6px 4px;
+      display: grid; grid-template-columns: 80px repeat(8, 1fr); align-items: center; padding: 6px 4px;
     }
     .emotion-row:nth-child(even) { background: rgba(238, 242, 255, 0.6); }
     .emotion-label { font-size: 0.9rem; color: #374151; font-weight: 500; }
@@ -177,20 +120,13 @@
     .btn-secondary { background: #e5e7eb; color: #374151; }
     .btn-primary {
       background: linear-gradient(135deg, #4f46e5, #ec4899);
-      color: #ffffff;
-      box-shadow: 0 12px 24px rgba(79, 70, 229, 0.45);
+      color: #ffffff; box-shadow: 0 12px 24px rgba(79, 70, 229, 0.45);
     }
 
     .error-toast {
-      display: none;
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(254, 226, 226, 0.85);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      color: #991b1b;
-      font-size: 0.86rem;
-      line-height: 1.35;
+      display: none; margin-top: 12px; padding: 10px 12px; border-radius: 14px;
+      background: rgba(254, 226, 226, 0.85); border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #991b1b; font-size: 0.86rem; line-height: 1.35;
     }
 
     #thank-you { text-align: center; padding: 40px 8px 24px; display: none; }
@@ -227,9 +163,7 @@
 
       <form id="survey-form">
 
-        <!-- =======================
-             STEP 1 (A,B)
-        ======================== -->
+        <!-- STEP 1 (A,B) -->
         <section id="step1" class="step step-active">
           <div class="session-title">PAGE 1. 인구통계 정보 & 카카오톡 사용 경험</div>
           <div class="session-subtitle">PART A, PART B</div>
@@ -392,7 +326,6 @@
             <textarea name="B7_detail"></textarea>
           </div>
 
-          <!-- ✅ step1 에러 토스트 & 버튼 (이게 빠져서 다음 페이지 안 넘어가는 경우 많음) -->
           <div class="error-toast" id="error-step1"></div>
 
           <div class="buttons">
@@ -401,9 +334,7 @@
           </div>
         </section>
 
-        <!-- =======================
-             STEP 2 (C)
-        ======================== -->
+        <!-- STEP 2 (C) -->
         <section id="step2" class="step">
           <div class="session-title">PAGE 2. PART C 개인/집단주의 척도</div>
           <div class="session-subtitle">1~9 (랜덤 제시)</div>
@@ -418,9 +349,7 @@
           </div>
         </section>
 
-        <!-- =======================
-             STEP 3 (D-1)
-        ======================== -->
+        <!-- STEP 3 (D-1) -->
         <section id="step3" class="step">
           <div class="session-title">PAGE 3. PART D-1 이모티콘 주관적 감정 인식</div>
           <div class="session-subtitle">12개 이모티콘 랜덤 제시</div>
@@ -435,9 +364,7 @@
           </div>
         </section>
 
-        <!-- =======================
-             STEP 4 (D-2)
-        ======================== -->
+        <!-- STEP 4 (D-2) -->
         <section id="step4" class="step">
           <div class="session-title">PAGE 4. PART D-2 이모티콘 정서 판단 및 이해도</div>
           <div class="session-subtitle">PAGE3과 동일 이모티콘(동일 순서)</div>
@@ -452,9 +379,7 @@
           </div>
         </section>
 
-        <!-- =======================
-             STEP 5 (E)
-        ======================== -->
+        <!-- STEP 5 (E) -->
         <section id="step5" class="step">
           <div class="session-title">PAGE 5. PART E 이모티콘 표현 및 수용성 척도</div>
           <div class="session-subtitle">1~9 (랜덤 제시)</div>
@@ -481,16 +406,12 @@
 
 <script>
   // =========================
-  // ✅ 설정 (Apps Script URL)
+  // ✅ Apps Script URL
   // =========================
-  const API_URL = "https://script.google.com/macros/s/AKfycbxoI_s-tx_Z64WLroJ2_BdWcU4Go0v6GLGL0_jp5qy279sNIXCpdQ-NhGOK9ZO3MCUmLQ/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbyN80mUdK3FmHwxVBxQMthFnPad9NxLqZuciEki_M8mMTNc8jkrLc_3GE_RLrMH0MrWQg/exec";
 
-  // ✅ 필수 제거: 검증 끄기(원하면 true로 바꾸면 됨)
   const ENABLE_VALIDATION = false;
 
-  // =========================
-  // util: shuffle
-  // =========================
   function shuffle(array) {
     const arr = array.slice();
     for (let i = arr.length - 1; i > 0; i--) {
@@ -500,9 +421,6 @@
     return arr;
   }
 
-  // =========================
-  // Likert 렌더 (required 없음)
-  // =========================
   function renderLikert(name, min, max) {
     const vals = [];
     for (let v = min; v <= max; v++) vals.push(v);
@@ -520,36 +438,37 @@
     `;
   }
 
-  // =========================
-  // (옵션) 검증
-  // =========================
   function validateStep(stepEl, errorEl) {
     if (!ENABLE_VALIDATION) {
       if (errorEl) { errorEl.style.display = "none"; errorEl.textContent = ""; }
       return true;
     }
-    // 필요해지면 여기서 required 기반 검증을 다시 켜면 됨
     return true;
   }
 
-  // =========================
-  // ✅ Apps Script 전송
-  // - key 순서를 안정화하기 위해 FIELD_ORDER를 정의하고 그 순서대로 data 구성
-  // =========================
- async function submitToSheet(formEl) {
-  const fd = new FormData(formEl);
+  // ✅ 전송: JSON 방식 (Apps Script의 JSON.parse와 100% 호환)
+  async function submitToSheet(formEl) {
+    const fd = new FormData(formEl);
+    const data = {};
 
-  // 제출 시각(프론트)
-  fd.append("_submitted_at", new Date().toISOString());
+    for (const [k, v] of fd.entries()) {
+      if (data[k] !== undefined) {
+        if (!Array.isArray(data[k])) data[k] = [data[k]];
+        data[k].push(v);
+      } else {
+        data[k] = v;
+      }
+    }
 
-  // ✅ 핵심: headers 넣지 말고, JSON.stringify 하지 말고, FormData 그대로 보내기
-  await fetch(API_URL, {
-  method: "POST",
-  mode: "no-cors",
-  headers: { "Content-Type": "text/plain;charset=utf-8" },
-  body: JSON.stringify(data),
-  });
-}
+    data._submitted_at = new Date().toISOString();
+
+    await fetch(API_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(data),
+      keepalive: true,
+    });
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("survey-form");
@@ -576,7 +495,7 @@
     }
 
     // =========================
-    // PART C (랜덤 제시 + display_order 저장)
+    // PART C
     // =========================
     const partCItems = [
       { code: "C_HC_1", text: "내 행복은 주변 사람들의 행복에 큰 영향을 받는다. (HC)" },
@@ -598,7 +517,6 @@
     const partCContainer = document.getElementById("partC-container");
     const partCOrder = shuffle(partCItems);
 
-    // display_order 저장
     const cOrderInput = document.createElement("input");
     cOrderInput.type = "hidden";
     cOrderInput.name = "C_display_order";
@@ -617,7 +535,7 @@
     });
 
     // =========================
-    // PART D: 이모티콘 랜덤 + 동일 순서 유지
+    // PART D
     // =========================
     const emojiFiles = [
       "emoji01.png","emoji02.png","emoji03.png","emoji04.png","emoji05.png","emoji06.png",
@@ -734,7 +652,7 @@
     });
 
     // =========================
-    // PART E (랜덤 제시 + 저장키는 code로 고정)
+    // PART E
     // =========================
     const partEItems = [
       { code: "E_PubNeg_1", text: "공적인 대화에서 내가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Negative)" },
@@ -778,33 +696,7 @@
       partEContainer.appendChild(block);
     });
 
-    // =========================
-    // ✅ 필드 순서(시트 컬럼 정렬용)
-    // - 여기 순서대로 JSON key가 만들어짐 → Apps Script가 헤더를 이 순서로 잡음
-    // =========================
-    const FIELD_ORDER = [
-      // meta
-      "_submitted_at",
-      "C_display_order",
-      "emoji_order",
-      "E_display_order",
-
-      // A
-      "A1_name","A2_age","A3_gender","A4_nationality","A5_country","A6_L1",
-      "A7_L2_1_lang","A7_L2_1_level","A7_L2_2_lang","A7_L2_2_level","A7_L2_3_lang","A7_L2_3_level",
-      "A8_overseas","A8_overseas_detail",
-
-      // B
-      "B1_kakao_period","B2_kakao_time","B3_emoji_freq","B4_emoji_count",
-      "B5_emoji_situations","B5_other",
-      "B6_other_messengers","B6_other",
-      "B7_detail",
-    ];
-    // C, D, E는 항목이 많아서 자동으로 뒤에 붙게 둠(그래도 key는 고정 code라 안정적)
-
-    // =========================
     // 페이지 이동 버튼
-    // =========================
     document.getElementById("to-step2").addEventListener("click", () => {
       if (validateStep(step1, err1)) showStep(2);
     });
@@ -825,28 +717,21 @@
     });
     document.getElementById("back-to-step4").addEventListener("click", () => showStep(4));
 
-    // =========================
     // 제출
-    // =========================
     form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  // validateStep 끈 상태면 여기서 바로
-  try {
-    await submitToSheet(form);
-    form.style.display = "none";
-    thank.style.display = "block";
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  } catch (err) {
-    console.error(err);
-    alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
-  }
+      e.preventDefault();
+      try {
+        await submitToSheet(form);
+        form.style.display = "none";
+        thank.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (err) {
+        console.error(err);
+        alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
+      }
     });
   });
 </script>
 
 </body>
 </html>
-
-
-
-
