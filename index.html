@@ -51,9 +51,7 @@
       margin-bottom: 18px;
     }
 
-    .title-area {
-      flex: 1;
-    }
+    .title-area { flex: 1; }
 
     .badge {
       display: inline-flex;
@@ -107,13 +105,8 @@
       margin-bottom: 10px;
     }
 
-    /* multi-step */
-    .step {
-      display: none;
-    }
-    .step-active {
-      display: block;
-    }
+    .step { display: none; }
+    .step-active { display: block; }
 
     /* emoji */
     .sticky-emoji-wrapper {
@@ -139,11 +132,7 @@
       box-shadow: 0 6px 14px rgba(148, 163, 255, 0.18);
     }
 
-    .emoji-top-box img {
-      width: 86%;
-      height: auto;
-      display: block;
-    }
+    .emoji-top-box img { width: 86%; height: auto; display: block; }
 
     .emoji-inline {
       display: flex;
@@ -151,14 +140,9 @@
       margin-bottom: 8px;
     }
 
-    .emoji-inline img {
-      width: 80px;
-      height: auto;
-    }
+    .emoji-inline img { width: 80px; height: auto; }
 
-    .emoji-block {
-      margin-bottom: 26px;
-    }
+    .emoji-block { margin-bottom: 26px; }
 
     /* 질문 카드 */
     .question-block {
@@ -194,6 +178,20 @@
       margin-bottom: 10px;
     }
 
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 9px 10px;
+      font-size: 0.9rem;
+      border-radius: 12px;
+      border: 1px solid #d4d7f0;
+      outline: none;
+      background: #ffffff;
+    }
+    input[type="text"]:focus, input[type="number"]:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.1);
+    }
+
     textarea {
       width: 100%;
       min-height: 72px;
@@ -205,7 +203,6 @@
       outline: none;
       background: #ffffff;
     }
-
     textarea:focus {
       border-color: #4f46e5;
       box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.1);
@@ -232,9 +229,7 @@
       max-width: 100%;
     }
 
-    .option input {
-      accent-color: #4f46e5;
-    }
+    .option input { accent-color: #4f46e5; }
 
     .option:hover {
       border-color: #c7d2fe;
@@ -260,13 +255,9 @@
       cursor: pointer;
     }
 
-    .likert-item input {
-      display: none;
-    }
+    .likert-item input { display: none; }
 
-    .likert-number {
-      font-size: 0.72rem;
-    }
+    .likert-number { font-size: 0.72rem; }
 
     .emotion-dot {
       width: 22px;
@@ -298,32 +289,24 @@
       transform: translateY(-1px);
     }
 
-    input[type="radio"]:checked + .emotion-dot::before {
-      background: #ffffff;
-    }
+    input[type="radio"]:checked + .emotion-dot::before { background: #ffffff; }
 
     .emotion-dot:hover {
       border-color: #818cf8;
       transform: translateY(-1px);
     }
 
-    /* 3-2 감정 0~7 라인 스타일 */
-    .emotion-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
+    /* 0~7 감정 라인 */
+    .emotion-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
 
     .emotion-row {
       display: grid;
-      grid-template-columns: 80px repeat(8, 1fr); /* 감정명 + 0~7 */
+      grid-template-columns: 80px repeat(8, 1fr);
       align-items: center;
       padding: 6px 4px;
     }
 
-    .emotion-row:nth-child(even) {
-      background: rgba(238, 242, 255, 0.6);
-    }
+    .emotion-row:nth-child(even) { background: rgba(238, 242, 255, 0.6); }
 
     .emotion-label {
       font-size: 0.9rem;
@@ -337,9 +320,7 @@
       align-items: center;
     }
 
-    .row-center input {
-      display: none;
-    }
+    .row-center input { display: none; }
 
     .buttons {
       display: flex;
@@ -348,9 +329,7 @@
       gap: 8px;
     }
 
-    .buttons-right {
-      justify-content: flex-end;
-    }
+    .buttons-right { justify-content: flex-end; }
 
     .btn {
       border: none;
@@ -361,10 +340,7 @@
       cursor: pointer;
     }
 
-    .btn-secondary {
-      background: #e5e7eb;
-      color: #374151;
-    }
+    .btn-secondary { background: #e5e7eb; color: #374151; }
 
     .btn-primary {
       background: linear-gradient(135deg, #4f46e5, #ec4899);
@@ -372,9 +348,18 @@
       box-shadow: 0 12px 24px rgba(79, 70, 229, 0.45);
     }
 
-    .btn-primary:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
+    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+    .error-toast {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(254, 226, 226, 0.85);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #991b1b;
+      font-size: 0.86rem;
+      line-height: 1.35;
     }
 
     #thank-you {
@@ -383,57 +368,25 @@
       display: none;
     }
 
-    #thank-you h2 {
-      margin: 0 0 10px;
-      font-size: 1.3rem;
-    }
-
-    #thank-you p {
-      font-size: 0.9rem;
-      color: #6b7280;
-      line-height: 1.6;
-    }
+    #thank-you h2 { margin: 0 0 10px; font-size: 1.3rem; }
+    #thank-you p { font-size: 0.9rem; color: #6b7280; line-height: 1.6; }
 
     @media (max-width: 768px) {
-      body {
-        padding: 18px 10px;
-      }
-
-      .survey-card {
-        padding: 20px 16px 22px;
-        border-radius: 22px;
-      }
-
-      h1 {
-        font-size: 1.3rem;
-      }
-
-      .subtitle {
-        font-size: 0.86rem;
-      }
-
-      .emoji-top-box {
-        width: 120px;
-        height: 120px;
-      }
-
-      .emotion-dot {
-        width: 20px;
-        height: 20px;
-      }
+      body { padding: 18px 10px; }
+      .survey-card { padding: 20px 16px 22px; border-radius: 22px; }
+      h1 { font-size: 1.3rem; }
+      .subtitle { font-size: 0.86rem; }
+      .emoji-top-box { width: 120px; height: 120px; }
+      .emotion-dot { width: 20px; height: 20px; }
     }
 
     @media (max-width: 480px) {
-      .survey-card {
-        padding: 18px 12px 20px;
-      }
-
-      h1 {
-        font-size: 1.15rem;
-      }
+      .survey-card { padding: 18px 12px 20px; }
+      h1 { font-size: 1.15rem; }
     }
   </style>
 </head>
+
 <body>
   <div class="page-shell">
     <div class="survey-card">
@@ -454,200 +407,191 @@
       <hr />
 
       <form id="survey-form">
-        <!-- STEP 1: Session 1 -->
+        <!-- PAGE 1: PART A + PART B -->
         <section id="step1" class="step step-active">
-          <div class="session-title">Session 1. 인구통계 및 카카오톡 사용 경험</div>
+          <div class="session-title">PAGE 1. 인구통계 정보 & 카카오톡 사용 경험</div>
+          <div class="session-subtitle">PART A, PART B에 답해주세요.</div>
 
-          <!-- 1-1 성별 -->
+          <!-- PART A -->
+          <div class="session-title" style="margin-top:10px;">PART A. 인구통계학적 정보</div>
+
           <div class="question-block">
-            <div class="question-title">
-              1-1. 성별 <span class="required">*</span>
-            </div>
+            <div class="question-title">A1. 연령(만) <span class="required">*</span></div>
+            <div class="question-desc">숫자로 입력해주세요.</div>
+            <input type="number" name="A1_age" min="10" max="120" required />
+          </div>
+
+          <div class="question-block">
+            <div class="question-title">A2. 성별 <span class="required">*</span></div>
             <div class="options">
-              <label class="option"><input type="radio" name="gender" value="남" required /> <span>남</span></label>
-              <label class="option"><input type="radio" name="gender" value="여" /> <span>여</span></label>
-              <label class="option"><input type="radio" name="gender" value="기타" /> <span>기타</span></label>
-              <label class="option"><input type="radio" name="gender" value="응답하고 싶지 않음" /> <span>응답하고 싶지 않음</span></label>
+              <label class="option"><input type="radio" name="A2_gender" value="남성" required /> <span>남성</span></label>
+              <label class="option"><input type="radio" name="A2_gender" value="여성" /> <span>여성</span></label>
             </div>
           </div>
 
-          <!-- 1-2 연령대 -->
           <div class="question-block">
-            <div class="question-title">
-              1-2. 연령대 <span class="required">*</span>
+            <div class="question-title">A3. 국적 <span class="required">*</span></div>
+            <input type="text" name="A3_nationality" required />
+          </div>
+
+          <div class="question-block">
+            <div class="question-title">A4. 현재 거주 국가 <span class="required">*</span></div>
+            <input type="text" name="A4_country" required />
+          </div>
+
+          <div class="question-block">
+            <div class="question-title">A5. 모국어 <span class="required">*</span></div>
+            <input type="text" name="A5_L1" required />
+          </div>
+
+          <div class="question-block">
+            <div class="question-title">A6. 제2외국어 (최대 3개) <span class="required">*</span></div>
+            <div class="question-desc">언어명 + 수준을 입력/선택해주세요. (비어있는 칸은 “없음”으로 입력)</div>
+
+            <div class="question-desc" style="margin-top:8px;">1순위</div>
+            <input type="text" name="A6_L2_1_lang" placeholder="예: 영어 / 없음" required />
+            <div class="options" style="margin-top:8px;">
+              <label class="option"><input type="radio" name="A6_L2_1_level" value="기초" required /> <span>기초</span></label>
+              <label class="option"><input type="radio" name="A6_L2_1_level" value="중급" /> <span>중급</span></label>
+              <label class="option"><input type="radio" name="A6_L2_1_level" value="고급" /> <span>고급</span></label>
+              <label class="option"><input type="radio" name="A6_L2_1_level" value="원어민 수준" /> <span>원어민 수준</span></label>
             </div>
+
+            <div class="question-desc" style="margin-top:12px;">2순위</div>
+            <input type="text" name="A6_L2_2_lang" placeholder="예: 일본어 / 없음" required />
+            <div class="options" style="margin-top:8px;">
+              <label class="option"><input type="radio" name="A6_L2_2_level" value="기초" required /> <span>기초</span></label>
+              <label class="option"><input type="radio" name="A6_L2_2_level" value="중급" /> <span>중급</span></label>
+              <label class="option"><input type="radio" name="A6_L2_2_level" value="고급" /> <span>고급</span></label>
+              <label class="option"><input type="radio" name="A6_L2_2_level" value="원어민 수준" /> <span>원어민 수준</span></label>
+            </div>
+
+            <div class="question-desc" style="margin-top:12px;">3순위</div>
+            <input type="text" name="A6_L2_3_lang" placeholder="예: 중국어 / 없음" required />
+            <div class="options" style="margin-top:8px;">
+              <label class="option"><input type="radio" name="A6_L2_3_level" value="기초" required /> <span>기초</span></label>
+              <label class="option"><input type="radio" name="A6_L2_3_level" value="중급" /> <span>중급</span></label>
+              <label class="option"><input type="radio" name="A6_L2_3_level" value="고급" /> <span>고급</span></label>
+              <label class="option"><input type="radio" name="A6_L2_3_level" value="원어민 수준" /> <span>원어민 수준</span></label>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <div class="question-title">A7. 해외 체류 경험(여행 제외, 6개월 이상) <span class="required">*</span></div>
             <div class="options">
-              <label class="option"><input type="radio" name="age" value="20대" required /> <span>20대</span></label>
-              <label class="option"><input type="radio" name="age" value="30대" /> <span>30대</span></label>
-              <label class="option"><input type="radio" name="age" value="40대" /> <span>40대</span></label>
-              <label class="option"><input type="radio" name="age" value="50대" /> <span>50대</span></label>
-              <label class="option"><input type="radio" name="age" value="60대 이상" /> <span>60대 이상</span></label>
+              <label class="option"><input type="radio" name="A7_overseas" value="없음" required /> <span>없음</span></label>
+              <label class="option"><input type="radio" name="A7_overseas" value="1회" /> <span>1회</span></label>
+              <label class="option"><input type="radio" name="A7_overseas" value="2회 이상" /> <span>2회 이상</span></label>
             </div>
+            <div class="question-desc" style="margin-top:10px;">(선택) 국가/기간을 적어주세요.</div>
+            <textarea name="A7_overseas_detail" placeholder="예: 독일 1년 2개월 / 미국 8개월"></textarea>
           </div>
 
-          <!-- 1-3 국적 -->
+          <!-- PART B -->
+          <div class="session-title" style="margin-top:18px;">PART B. 카카오톡 사용 경험</div>
+
           <div class="question-block">
-            <div class="question-title">
-              1-3. 국적 <span class="required">*</span>
-            </div>
+            <div class="question-title">B1. 카카오톡 사용 기간 <span class="required">*</span></div>
             <div class="options">
-              <label class="option"><input type="radio" name="nationality" value="한국" required /> <span>한국</span></label>
-              <label class="option"><input type="radio" name="nationality" value="기타" /> <span>기타 (직접 입력)</span></label>
+              <label class="option"><input type="radio" name="B1_kakao_period" value="3개월 미만(1)" required /><span>3개월 미만</span></label>
+              <label class="option"><input type="radio" name="B1_kakao_period" value="3~6개월(2)" /><span>3개월~6개월</span></label>
+              <label class="option"><input type="radio" name="B1_kakao_period" value="6개월~1년(3)" /><span>6개월~1년</span></label>
+              <label class="option"><input type="radio" name="B1_kakao_period" value="1~2년(4)" /><span>1년~2년</span></label>
+              <label class="option"><input type="radio" name="B1_kakao_period" value="2년 이상(5)" /><span>2년 이상</span></label>
             </div>
-            <div class="question-desc">위 문항에서 ‘기타’를 선택한 경우, 아래에 국적을 적어 주세요.</div>
-            <textarea name="nationality_other"></textarea>
           </div>
 
-          <!-- 1-4 한국 거주 기간 -->
           <div class="question-block">
-            <div class="question-title">
-              1-4. 한국 거주 기간 (외국인만 응답)
-            </div>
+            <div class="question-title">B2. 하루 평균 카카오톡 사용 시간 <span class="required">*</span></div>
             <div class="options">
-              <label class="option"><input type="radio" name="kr_stay" value="없음" /> <span>없음</span></label>
-              <label class="option"><input type="radio" name="kr_stay" value="6개월 미만" /> <span>6개월 미만</span></label>
-              <label class="option"><input type="radio" name="kr_stay" value="6개월–1년" /> <span>6개월–1년</span></label>
-              <label class="option"><input type="radio" name="kr_stay" value="1–3년" /> <span>1–3년</span></label>
-              <label class="option"><input type="radio" name="kr_stay" value="3년 이상" /> <span>3년 이상</span></label>
+              <label class="option"><input type="radio" name="B2_kakao_time" value="30분 미만(1)" required /><span>30분 미만</span></label>
+              <label class="option"><input type="radio" name="B2_kakao_time" value="30분~1시간(2)" /><span>30분~1시간</span></label>
+              <label class="option"><input type="radio" name="B2_kakao_time" value="1~2시간(3)" /><span>1~2시간</span></label>
+              <label class="option"><input type="radio" name="B2_kakao_time" value="2~3시간(4)" /><span>2~3시간</span></label>
+              <label class="option"><input type="radio" name="B2_kakao_time" value="3시간 이상(5)" /><span>3시간 이상</span></label>
             </div>
           </div>
 
-          <!-- 1-5 한국어 능력 -->
           <div class="question-block">
-            <div class="question-title">
-              1-5. 한국어 능력 (외국인만, 1–7 척도)
-            </div>
-            <div class="question-desc">각 영역별로 본인의 한국어 능력을 평가해 주세요. (1 = 매우 낮음, 7 = 매우 높음)</div>
-
-            <!-- 말하기 -->
-            <div class="question-desc" style="margin-top:4px; margin-bottom:4px;">말하기</div>
-            <div class="likert-row">
-              <label class="likert-item"><input type="radio" name="ko_speaking" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
-              <label class="likert-item"><input type="radio" name="ko_speaking" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
-              <label class="likert-item"><input type="radio" name="ko_speaking" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
-              <label class="likert-item"><input type="radio" name="ko_speaking" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
-              <label class="likert-item"><input type="radio" name="ko_speaking" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
-              <label class="likert-item"><input type="radio" name="ko_speaking" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
-              <label class="likert-item"><input type="radio" name="ko_speaking" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
-            </div>
-
-            <!-- 듣기 -->
-            <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">듣기</div>
-            <div class="likert-row">
-              <label class="likert-item"><input type="radio" name="ko_listening" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
-              <label class="likert-item"><input type="radio" name="ko_listening" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
-              <label class="likert-item"><input type="radio" name="ko_listening" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
-              <label class="likert-item"><input type="radio" name="ko_listening" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
-              <label class="likert-item"><input type="radio" name="ko_listening" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
-              <label class="likert-item"><input type="radio" name="ko_listening" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
-              <label class="likert-item"><input type="radio" name="ko_listening" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
-            </div>
-
-            <!-- 읽기 -->
-            <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">읽기</div>
-            <div class="likert-row">
-              <label class="likert-item"><input type="radio" name="ko_reading" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
-              <label class="likert-item"><input type="radio" name="ko_reading" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
-              <label class="likert-item"><input type="radio" name="ko_reading" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
-              <label class="likert-item"><input type="radio" name="ko_reading" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
-              <label class="likert-item"><input type="radio" name="ko_reading" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
-              <label class="likert-item"><input type="radio" name="ko_reading" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
-              <label class="likert-item"><input type="radio" name="ko_reading" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
-            </div>
-
-            <!-- 쓰기 -->
-            <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">쓰기</div>
-            <div class="likert-row">
-              <label class="likert-item"><input type="radio" name="ko_writing" value="1" /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
-              <label class="likert-item"><input type="radio" name="ko_writing" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
-              <label class="likert-item"><input type="radio" name="ko_writing" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
-              <label class="likert-item"><input type="radio" name="ko_writing" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
-              <label class="likert-item"><input type="radio" name="ko_writing" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
-              <label class="likert-item"><input type="radio" name="ko_writing" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
-              <label class="likert-item"><input type="radio" name="ko_writing" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
-            </div>
-          </div>
-
-          <!-- 1-6 카카오톡 사용 여부 -->
-          <div class="question-block">
-            <div class="question-title">
-              1-6. 카카오톡 사용 여부 <span class="required">*</span>
-            </div>
+            <div class="question-title">B3. 카카오톡 대화 중 이모티콘 사용 빈도 <span class="required">*</span></div>
             <div class="options">
-              <label class="option"><input type="radio" name="kakao_use" value="예" required /> <span>예</span></label>
-              <label class="option"><input type="radio" name="kakao_use" value="아니오" /> <span>아니오</span></label>
+              <label class="option"><input type="radio" name="B3_emoji_freq" value="거의 사용하지 않음(1)" required /><span>거의 사용하지 않음</span></label>
+              <label class="option"><input type="radio" name="B3_emoji_freq" value="가끔 사용(2)" /><span>가끔 사용</span></label>
+              <label class="option"><input type="radio" name="B3_emoji_freq" value="보통(3)" /><span>보통</span></label>
+              <label class="option"><input type="radio" name="B3_emoji_freq" value="자주 사용(4)" /><span>자주 사용</span></label>
+              <label class="option"><input type="radio" name="B3_emoji_freq" value="매우 자주 사용(5)" /><span>매우 자주 사용</span></label>
             </div>
           </div>
 
-          <!-- 1-7 사용 빈도 -->
           <div class="question-block">
-            <div class="question-title">
-              1-7. 카카오 이모티콘 사용 빈도 (1–7 척도) <span class="required">*</span>
-            </div>
-            <div class="question-desc">1 = 전혀 사용하지 않는다 ~ 7 = 자주 사용한다</div>
-            <div class="likert-row">
-              <label class="likert-item"><input type="radio" name="emoji_freq" value="1" required /><span class="emotion-dot"></span><span class="likert-number">1</span></label>
-              <label class="likert-item"><input type="radio" name="emoji_freq" value="2" /><span class="emotion-dot"></span><span class="likert-number">2</span></label>
-              <label class="likert-item"><input type="radio" name="emoji_freq" value="3" /><span class="emotion-dot"></span><span class="likert-number">3</span></label>
-              <label class="likert-item"><input type="radio" name="emoji_freq" value="4" /><span class="emotion-dot"></span><span class="likert-number">4</span></label>
-              <label class="likert-item"><input type="radio" name="emoji_freq" value="5" /><span class="emotion-dot"></span><span class="likert-number">5</span></label>
-              <label class="likert-item"><input type="radio" name="emoji_freq" value="6" /><span class="emotion-dot"></span><span class="likert-number">6</span></label>
-              <label class="likert-item"><input type="radio" name="emoji_freq" value="7" /><span class="emotion-dot"></span><span class="likert-number">7</span></label>
-            </div>
-          </div>
-
-          <!-- 1-8 하루 평균 사용량 -->
-          <div class="question-block">
-            <div class="question-title">
-              1-8. 하루 평균 이모티콘 사용량 <span class="required">*</span>
-            </div>
+            <div class="question-title">B4. 구매한 카카오톡 이모티콘 개수 <span class="required">*</span></div>
             <div class="options">
-              <label class="option"><input type="radio" name="emoji_amount" value="0–2회" required /> <span>0–2회</span></label>
-              <label class="option"><input type="radio" name="emoji_amount" value="3–5회" /> <span>3–5회</span></label>
-              <label class="option"><input type="radio" name="emoji_amount" value="6–10회" /> <span>6–10회</span></label>
-              <label class="option"><input type="radio" name="emoji_amount" value="10회 이상" /> <span>10회 이상</span></label>
+              <label class="option"><input type="radio" name="B4_emoji_count" value="없음(1)" required /><span>없음</span></label>
+              <label class="option"><input type="radio" name="B4_emoji_count" value="1~3개(2)" /><span>1~3개</span></label>
+              <label class="option"><input type="radio" name="B4_emoji_count" value="4~10개(3)" /><span>4~10개</span></label>
+              <label class="option"><input type="radio" name="B4_emoji_count" value="11~20개(4)" /><span>11~20개</span></label>
+              <label class="option"><input type="radio" name="B4_emoji_count" value="21개 이상(5)" /><span>21개 이상</span></label>
             </div>
           </div>
 
-          <!-- 1-9 유료 구매 경험 -->
-          <div class="question-block">
-            <div class="question-title">
-              1-9. 카카오 이모티콘을 유료로 구매한 경험이 있습니까? <span class="required">*</span>
-            </div>
+          <div class="question-block" data-min-check="1" data-group="B5_emoji_situations">
+            <div class="question-title">B5. 주로 어떤 상황에서 이모티콘을 사용하십니까? (복수 선택) <span class="required">*</span></div>
             <div class="options">
-              <label class="option"><input type="radio" name="emoji_paid" value="예" required /> <span>예</span></label>
-              <label class="option"><input type="radio" name="emoji_paid" value="아니오" /> <span>아니오</span></label>
+              <label class="option"><input type="checkbox" name="B5_emoji_situations" value="감정을 표현할 때" /> <span>감정을 표현할 때</span></label>
+              <label class="option"><input type="checkbox" name="B5_emoji_situations" value="대화 분위기를 부드럽게 할 때" /> <span>대화 분위기를 부드럽게 할 때</span></label>
+              <label class="option"><input type="checkbox" name="B5_emoji_situations" value="말로 표현하기 어려운 감정일 때" /> <span>말로 표현하기 어려운 감정일 때</span></label>
+              <label class="option"><input type="checkbox" name="B5_emoji_situations" value="재미를 위해" /> <span>재미를 위해</span></label>
+              <label class="option"><input type="checkbox" name="B5_emoji_situations" value="대화를 마무리할 때" /> <span>대화를 마무리할 때</span></label>
+              <label class="option"><input type="checkbox" name="B5_emoji_situations" value="상대방에게 공감을 표시할 때" /> <span>상대방에게 공감을 표시할 때</span></label>
+              <label class="option"><input type="checkbox" name="B5_emoji_situations" value="기타" /> <span>기타</span></label>
             </div>
+            <div class="question-desc" style="margin-top:10px;">기타를 선택한 경우 내용을 적어주세요.</div>
+            <textarea name="B5_other" placeholder="기타 내용"></textarea>
           </div>
 
-          <!-- 1-10 유료 구매 이유 -->
-          <div class="question-block">
-            <div class="question-title">
-              1-10. 유료 이모티콘을 구매하는 이유는 무엇인가요? (1-9에서 ‘예’ 응답자만)
-            </div>
-            <div class="question-desc">해당되는 이유를 모두 선택해 주세요.</div>
+          <div class="question-block" data-min-check="1" data-group="B6_other_messengers">
+            <div class="question-title">B6. 카카오톡 외에 자주 사용하는 메신저 앱 (복수 선택) <span class="required">*</span></div>
             <div class="options">
-              <label class="option"><input type="checkbox" name="emoji_paid_reason" value="감정 표현을 더 정확히 하기 위해" /> <span>감정 표현을 더 정확히 하기 위해</span></label>
-              <label class="option"><input type="checkbox" name="emoji_paid_reason" value="상대와 친밀감을 높이기 위해" /> <span>상대와 친밀감을 높이기 위해</span></label>
-              <label class="option"><input type="checkbox" name="emoji_paid_reason" value="캐릭터/디자인이 마음에 들어서" /> <span>캐릭터/디자인이 마음에 들어서</span></label>
-              <label class="option"><input type="checkbox" name="emoji_paid_reason" value="특정 상황에 맞춰 사용하기 위해" /> <span>특정 상황에 맞춰 사용하기 위해</span></label>
-              <label class="option"><input type="checkbox" name="emoji_paid_reason" value="기타" /> <span>기타</span></label>
+              <label class="option"><input type="checkbox" name="B6_other_messengers" value="WhatsApp" /> <span>WhatsApp</span></label>
+              <label class="option"><input type="checkbox" name="B6_other_messengers" value="Telegram" /> <span>Telegram</span></label>
+              <label class="option"><input type="checkbox" name="B6_other_messengers" value="iMessage" /> <span>iMessage</span></label>
+              <label class="option"><input type="checkbox" name="B6_other_messengers" value="WeChat" /> <span>WeChat</span></label>
+              <label class="option"><input type="checkbox" name="B6_other_messengers" value="LINE" /> <span>LINE</span></label>
+              <label class="option"><input type="checkbox" name="B6_other_messengers" value="Instagram DM" /> <span>Instagram DM</span></label>
+              <label class="option"><input type="checkbox" name="B6_other_messengers" value="기타" /> <span>기타</span></label>
             </div>
+            <div class="question-desc" style="margin-top:10px;">기타를 선택한 경우 내용을 적어주세요.</div>
+            <textarea name="B6_other" placeholder="기타 메신저"></textarea>
           </div>
+
+          <div class="question-block">
+            <div class="question-title">B7. 카카오톡 이모티콘은 다른 메신저의 이모티콘과 비교했을 때? <span class="required">*</span></div>
+            <div class="options">
+              <label class="option"><input type="radio" name="B7_compare" value="매우 다르다" required /><span>매우 다르다</span></label>
+              <label class="option"><input type="radio" name="B7_compare" value="약간 다르다" /><span>약간 다르다</span></label>
+              <label class="option"><input type="radio" name="B7_compare" value="비슷하다" /><span>비슷하다</span></label>
+              <label class="option"><input type="radio" name="B7_compare" value="거의 같다" /><span>거의 같다</span></label>
+              <label class="option"><input type="radio" name="B7_compare" value="잘 모르겠다" /><span>잘 모르겠다</span></label>
+            </div>
+            <div class="question-desc" style="margin-top:10px;">(필수) 다르다면 어떤 점이 다른가요?</div>
+            <textarea name="B7_detail" required placeholder="자유 응답"></textarea>
+          </div>
+
+          <div class="error-toast" id="error-step1"></div>
 
           <div class="buttons buttons-right">
             <button type="button" class="btn btn-primary" id="to-step2">다음 ▶</button>
           </div>
         </section>
 
-        <!-- STEP 2: Session 2 -->
+        <!-- PAGE 2: PART C -->
         <section id="step2" class="step">
-          <div class="session-title">Session 2. 이모티콘에 대한 주관적 감정</div>
-          <div class="session-subtitle">
-            아래에 제시된 12개의 카카오 이모티콘 각각에 대해, 어떤 감정을 표현한다고 생각하는지 적어 주세요.
-          </div>
+          <div class="session-title">PAGE 2. PART C 개인/집단주의 척도</div>
+          <div class="session-subtitle">1(매우 동의하지 않음) ~ 9(매우 동의함)</div>
 
-          <div id="session2-emojis"></div>
+          <div id="partC-container"></div>
+
+          <div class="error-toast" id="error-step2"></div>
 
           <div class="buttons">
             <button type="button" class="btn btn-secondary" id="back-to-step1">◀ 이전</button>
@@ -655,18 +599,49 @@
           </div>
         </section>
 
-        <!-- STEP 3: Session 3 -->
+        <!-- PAGE 3: PART D-1 -->
         <section id="step3" class="step">
-          <div class="session-title">Session 3. 이모티콘 기본 정서 판단 및 이해도</div>
-          <div class="session-subtitle">
-            Session 2에서 보신 것과 동일한 12개 이모티콘에 대해, 각 항목을 평가해 주세요.<br />
-            이모티콘 하나에 대한 3-1 ~ 3-8 문항을 모두 응답한 뒤, 아래로 스크롤하면 다음 이모티콘이 나타납니다.
-          </div>
+          <div class="session-title">PAGE 3. PART D-1 이모티콘 주관적 감정 인식</div>
+          <div class="session-subtitle">아래 12개 이모티콘 각각에 대해, 어떤 감정을 표현한다고 생각하는지 적어 주세요. (랜덤 제시)</div>
 
-          <div id="session3-emojis"></div>
+          <div id="partD1-container"></div>
+
+          <div class="error-toast" id="error-step3"></div>
 
           <div class="buttons">
             <button type="button" class="btn btn-secondary" id="back-to-step2">◀ 이전</button>
+            <button type="button" class="btn btn-primary" id="to-step4">다음 ▶</button>
+          </div>
+        </section>
+
+        <!-- PAGE 4: PART D-2 -->
+        <section id="step4" class="step">
+          <div class="session-title">PAGE 4. PART D-2 이모티콘 정서 판단 및 이해도</div>
+          <div class="session-subtitle">
+            PAGE3과 동일한 이모티콘(동일 순서)입니다. 각 이모티콘에 대해 모든 문항을 응답해 주세요.
+          </div>
+
+          <div id="partD2-container"></div>
+
+          <div class="error-toast" id="error-step4"></div>
+
+          <div class="buttons">
+            <button type="button" class="btn btn-secondary" id="back-to-step3">◀ 이전</button>
+            <button type="button" class="btn btn-primary" id="to-step5">다음 ▶</button>
+          </div>
+        </section>
+
+        <!-- PAGE 5: PART E -->
+        <section id="step5" class="step">
+          <div class="session-title">PAGE 5. PART E 이모티콘 표현 및 수용성 척도</div>
+          <div class="session-subtitle">1(매우 그렇지 않다) ~ 9(매우 그렇다) (랜덤 제시)</div>
+
+          <div id="partE-container"></div>
+
+          <div class="error-toast" id="error-step5"></div>
+
+          <div class="buttons">
+            <button type="button" class="btn btn-secondary" id="back-to-step4">◀ 이전</button>
             <button type="submit" class="btn btn-primary">응답 제출하기</button>
           </div>
         </section>
@@ -675,15 +650,35 @@
       <div id="thank-you">
         <h2>응답해 주셔서 감사합니다 😊</h2>
         <p>
-          설문 응답이 정상적으로 전송되었습니다.<br />
-          (현재는 테스트 버전이라, 브라우저 개발자 도구 Console에서 응답 내용을 확인할 수 있습니다.)
+          설문 응답이 전송되었습니다.<br />
+          (구글폼 전송은 브라우저 보안정책으로 인해 성공 여부를 화면에서 확인할 수 없는 경우가 있습니다. 전송 후에는 이 페이지가 완료 화면으로 전환됩니다.)
         </p>
       </div>
     </div>
   </div>
 
   <script>
-    // --- 유틸: 배열 섞기 ---
+    // =========================
+    // 0) 설정: 구글폼 연동
+    // =========================
+    // 1) 구글폼에서 "미리보기" -> 개발자도구 Network로 formResponse URL 확보
+    //    예: https://docs.google.com/forms/d/e/폼ID/formResponse
+    const GOOGLE_FORM_ACTION_URL = "PUT_YOUR_GOOGLE_FORM_formResponse_URL_HERE";
+
+    // 2) 각 문항을 구글폼에서 만들고, 각각의 entry.XXXXX 값을 매핑해야 함
+    //    아래는 예시 템플릿. 실제 entry 번호로 바꿔서 사용.
+    //    키는 이 HTML의 input name과 동일해야 함.
+    const ENTRY_MAP = {
+      // 예:
+      // "A1_age": "entry.1234567890",
+      // "A2_gender": "entry.2345678901",
+      // ...
+      // "emoji_order": "entry.9999999999"
+    };
+
+    // =========================
+    // 1) 유틸: shuffle
+    // =========================
     function shuffle(array) {
       const arr = array.slice();
       for (let i = arr.length - 1; i > 0; i--) {
@@ -693,45 +688,225 @@
       return arr;
     }
 
+    // =========================
+    // 2) 유틸: Likert row renderer
+    // =========================
+    function renderLikert(name, min, max, required=true) {
+      const vals = [];
+      for (let v = min; v <= max; v++) vals.push(v);
+      return `
+        <div class="likert-row">
+          ${vals.map((v, idx) => `
+            <label class="likert-item">
+              <input type="radio" name="${name}" value="${v}" ${required && idx===0 ? 'required' : ''} />
+              <span class="emotion-dot"></span>
+              <span class="likert-number">${v}</span>
+            </label>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    // =========================
+    // 3) 페이지 검증 (필수 응답)
+    // =========================
+    function validateStep(stepEl, errorEl) {
+      // (A) HTML5 required 검증
+      const requiredFields = stepEl.querySelectorAll("[required]");
+      for (const el of requiredFields) {
+        // 라디오: name 그룹 체크
+        if (el.type === "radio") {
+          const name = el.name;
+          const checked = stepEl.querySelector(`input[type="radio"][name="${CSS.escape(name)}"]:checked`);
+          if (!checked) {
+            errorEl.style.display = "block";
+            errorEl.textContent = "필수 문항을 모두 응답해 주세요. (선택하지 않은 항목이 있습니다.)";
+            return false;
+          }
+        } else if (el.tagName === "TEXTAREA" || el.tagName === "INPUT") {
+          if (!el.checkValidity()) {
+            errorEl.style.display = "block";
+            errorEl.textContent = "필수 문항을 모두 응답해 주세요. (입력하지 않은 항목이 있습니다.)";
+            el.reportValidity?.();
+            return false;
+          }
+        }
+      }
+
+      // (B) 체크박스 그룹: 최소 선택 개수(data-min-check)
+      const groups = stepEl.querySelectorAll("[data-min-check]");
+      for (const groupEl of groups) {
+        const min = Number(groupEl.getAttribute("data-min-check") || "1");
+        const groupName = groupEl.getAttribute("data-group");
+        if (!groupName) continue;
+
+        const checked = groupEl.querySelectorAll(`input[type="checkbox"][name="${CSS.escape(groupName)}"]:checked`).length;
+        if (checked < min) {
+          errorEl.style.display = "block";
+          errorEl.textContent = "필수 문항을 모두 응답해 주세요. (복수 선택 항목에서 최소 1개 이상 선택해야 합니다.)";
+          return false;
+        }
+      }
+
+      errorEl.style.display = "none";
+      errorEl.textContent = "";
+      return true;
+    }
+
+    // =========================
+    // 4) 구글폼 전송
+    // =========================
+    async function submitToGoogleForm(formEl) {
+      // FormData -> {key: value or [..]}
+      const fd = new FormData(formEl);
+      const data = {};
+      for (const [k, v] of fd.entries()) {
+        if (data[k]) {
+          if (!Array.isArray(data[k])) data[k] = [data[k]];
+          data[k].push(v);
+        } else {
+          data[k] = v;
+        }
+      }
+
+      // ENTRY_MAP 기반으로 urlencoded payload 구성
+      const payload = new URLSearchParams();
+      for (const [name, value] of Object.entries(data)) {
+        const entryKey = ENTRY_MAP[name];
+        if (!entryKey) continue; // 매핑 안 된 항목은 전송되지 않음
+
+        if (Array.isArray(value)) {
+          value.forEach(v => payload.append(entryKey, v));
+        } else {
+          payload.append(entryKey, value);
+        }
+      }
+
+      // 구글폼은 CORS 때문에 no-cors로 전송하는 게 안정적
+      await fetch(GOOGLE_FORM_ACTION_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body: payload.toString()
+      });
+    }
+
+    // =========================
+    // 5) DOMContentLoaded: 랜덤 구성 렌더링
+    // =========================
     document.addEventListener("DOMContentLoaded", () => {
-      // 이모티콘 파일 12개
+      const form = document.getElementById("survey-form");
+      const thank = document.getElementById("thank-you");
+
+      const step1 = document.getElementById("step1");
+      const step2 = document.getElementById("step2");
+      const step3 = document.getElementById("step3");
+      const step4 = document.getElementById("step4");
+      const step5 = document.getElementById("step5");
+
+      const err1 = document.getElementById("error-step1");
+      const err2 = document.getElementById("error-step2");
+      const err3 = document.getElementById("error-step3");
+      const err4 = document.getElementById("error-step4");
+      const err5 = document.getElementById("error-step5");
+
+      function showStep(n) {
+        [step1, step2, step3, step4, step5].forEach((el, idx) => {
+          if (idx === n - 1) el.classList.add("step-active");
+          else el.classList.remove("step-active");
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // -------------------------
+      // (A) PART C 랜덤 렌더링
+      // -------------------------
+      const partCItems = [
+        // HC
+        { code: "C_HC_1", text: "내 행복은 주변 사람들의 행복에 큰 영향을 받는다. (HC)" },
+        { code: "C_HC_2", text: "동료들의 행복이 나에게 중요하다. (HC)" },
+        { code: "C_HC_3", text: "동료가 상을 받으면 나도 자랑스러울 것이다. (HC)" },
+        { code: "C_HC_4", text: "나는 다른 사람들과 협동할 때 기분이 좋다. (HC)" },
+        // VC
+        { code: "C_VC_1", text: "나는 매우 싫어하는 일이라도 가족을 기쁘게 하는 일이라면 하겠다. (VC)" },
+        { code: "C_VC_2", text: "나는 집단의 이익을 위해 내 개인적인 이익을 희생한다. (VC)" },
+        { code: "C_VC_3", text: "자식은 부모님이 훌륭한 상을 받으시면 영광스럽게 생각해야 한다. (VC)" },
+        { code: "C_VC_4", text: "내가 아무리 좋아하는 일이라도 가족이 반대하면 포기한다. (VC)" },
+        // HI
+        { code: "C_HI_1", text: "나는 남들과 다른 나의 개성있는 모습을 좋아한다. (HI)" },
+        { code: "C_HI_2", text: "나는 종종 나만의 방식대로 행동한다. (HI)" },
+        { code: "C_HI_3", text: "나는 개성이 뚜렷한 사람이다. (HI)" },
+        // VI
+        { code: "C_VI_1", text: "나는 남들과 경쟁하는 환경에서 일하는 것을 즐긴다. (VI)" },
+        { code: "C_VI_2", text: "경쟁은 자연의 법칙이다. (VI)" },
+        { code: "C_VI_3", text: "경쟁 없이는 좋은 사회를 만들 수 없다. (VI)" },
+      ];
+
+      const partCContainer = document.getElementById("partC-container");
+      shuffle(partCItems).forEach((it, idx) => {
+        const block = document.createElement("div");
+        block.className = "question-block";
+        block.innerHTML = `
+          <div class="question-title">
+            C-${idx+1}. ${it.text} <span class="required">*</span>
+          </div>
+          <div class="question-desc">1 = 매우 동의하지 않음 ~ 9 = 매우 동의함</div>
+          ${renderLikert(it.code, 1, 9, true)}
+        `;
+        partCContainer.appendChild(block);
+      });
+
+      // -------------------------
+      // (B) PART D-1 / D-2 이모티콘 랜덤 (동일 순서 유지)
+      // -------------------------
       const emojiFiles = [
         "emoji01.png", "emoji02.png", "emoji03.png", "emoji04.png",
         "emoji05.png", "emoji06.png", "emoji07.png", "emoji08.png",
         "emoji09.png", "emoji10.png", "emoji11.png", "emoji12.png"
       ];
 
-      // 랜덤 순서 한 번 정하고 Session2·3에서 동일하게 사용
-      const shuffled = shuffle(emojiFiles);
+      const emojiOrder = shuffle(emojiFiles);
 
-      const s2Container = document.getElementById("session2-emojis");
-      const s3Container = document.getElementById("session3-emojis");
+      // 이모티콘 순서 hidden 기록(분석용)
+      const orderInput = document.createElement("input");
+      orderInput.type = "hidden";
+      orderInput.name = "emoji_order";
+      orderInput.value = emojiOrder.join(",");
+      form.appendChild(orderInput);
 
-      // --- Session 2: 12개 이모티콘 + 주관식 1개 ---
-      shuffled.forEach((file, idx) => {
-        const i = idx + 1;
+      // D-1
+      const d1 = document.getElementById("partD1-container");
+      emojiOrder.forEach((file, idx) => {
+        const i = idx + 1; // 제시 순서
         const block = document.createElement("div");
         block.className = "question-block white";
-
         block.innerHTML = `
           <div class="emoji-inline">
             <img src="${file}" alt="이모티콘 ${i}" />
           </div>
           <div class="question-title">
-            2-${i}. 이 이모티콘은 어떤 감정을 표현하고 있다고 생각하나요?
-            <span class="required">*</span>
+            D-1-${i}. 이 이모티콘은 어떤 감정을 표현하고 있다고 생각하나요? <span class="required">*</span>
           </div>
-          <textarea name="s2_emotion_${i}" required></textarea>
-          <input type="hidden" name="s2_emoji_${i}" value="${file}">
+          <textarea name="D1_label_${i}" required></textarea>
+          <input type="hidden" name="D1_emoji_${i}" value="${file}">
+          <input type="hidden" name="D1_order_${i}" value="${i}">
         `;
-        s2Container.appendChild(block);
+        d1.appendChild(block);
       });
 
-      // --- Session 3: 각 이모티콘별 3-1~3-8 세트 + sticky emoji ---
-      shuffled.forEach((file, idx) => {
+      // D-2
+      const d2 = document.getElementById("partD2-container");
+
+      // (선택) 6개 정서 라벨도 랜덤으로 섞고 싶으면 true로 변경
+      const RANDOMIZE_BASIC_EMOTIONS = false;
+      const baseEmotions = ["기쁨","슬픔","화남","놀라움","두려움","혐오"];
+
+      emojiOrder.forEach((file, idx) => {
         const i = idx + 1;
         const wrap = document.createElement("div");
         wrap.className = "emoji-block";
+
+        const emoList = RANDOMIZE_BASIC_EMOTIONS ? shuffle(baseEmotions) : baseEmotions;
 
         wrap.innerHTML = `
           <div class="sticky-emoji-wrapper">
@@ -740,65 +915,48 @@
             </div>
           </div>
 
-          <!-- 3-1 valence, arousal -->
+          <!-- D-2-1: Valence/Negative/Arousal (1~7) -->
           <div class="question-block">
             <div class="question-title">
-              3-1. (이모티콘 ${i}) 이 이모티콘의 전반적인 느낌을 평가해 주세요.
-              <span class="required">*</span>
+              D-2-${i}-1. 이 이모티콘의 전반적인 정서를 평가해 주세요. <span class="required">*</span>
             </div>
             <div class="question-desc">각 항목에 대해 1~7 사이에서 선택해 주세요.</div>
 
             <div class="question-desc" style="margin-top:4px; margin-bottom:4px;">
-              (1) Valence: 부정적 &lt;–&gt; 긍정적
+              (A) 긍정 정서: 1(전혀 없음) ~ 7(매우 긍정)
             </div>
-            <div class="likert-row">
-              ${[1,2,3,4,5,6,7].map(v => `
-                <label class="likert-item">
-                  <input type="radio" name="valence_${i}" value="${v}" ${v===1?'required':''}/>
-                  <span class="emotion-dot"></span>
-                  <span class="likert-number">${v}</span>
-                </label>
-              `).join("")}
-            </div>
+            ${renderLikert(`D2_pos_${i}`, 1, 7, true)}
 
             <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">
-              (2) Arousal: 매우 차분함 &lt;–&gt; 매우 흥분됨
+              (B) 부정 정서: 1(전혀 없음) ~ 7(매우 부정)
             </div>
-            <div class="likert-row">
-              ${[1,2,3,4,5,6,7].map(v => `
-                <label class="likert-item">
-                  <input type="radio" name="arousal_${i}" value="${v}" ${v===1?'required':''}/>
-                  <span class="emotion-dot"></span>
-                  <span class="likert-number">${v}</span>
-                </label>
-              `).join("")}
+            ${renderLikert(`D2_neg_${i}`, 1, 7, true)}
+
+            <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">
+              (C) 각성 수준: 1(매우 차분) ~ 7(매우 각성)
             </div>
+            ${renderLikert(`D2_arousal_${i}`, 1, 7, true)}
           </div>
 
-          <!-- 3-2 여섯 감정 (0–7) -->
+          <!-- D-2-2: 6 basic emotions (0~7) -->
           <div class="question-block">
             <div class="question-title">
-              3-2. (이모티콘 ${i}) 이 이모티콘이 다음 감정을 얼마나 표현한다고 느끼십니까?
-              <span class="required">*</span>
+              D-2-${i}-2. 이 이모티콘이 다음 감정을 얼마나 표현한다고 느끼십니까? <span class="required">*</span>
             </div>
             <div class="question-desc">0 = 전혀 느껴지지 않는다 ~ 7 = 매우 강하게 느껴진다</div>
 
             <div class="emotion-table">
-              <!-- header -->
               <div class="emotion-row" style="background: transparent;">
                 <div></div>
-                ${[0,1,2,3,4,5,6,7].map(v => `
-                  <div class="row-center">${v}</div>
-                `).join("")}
+                ${[0,1,2,3,4,5,6,7].map(v => `<div class="row-center">${v}</div>`).join("")}
               </div>
 
-              <!-- rows -->
-              ${["기쁨","슬픔","화남","놀라움","두려움","혐오"].map((emo) => `
+              ${emoList.map((emo) => `
                 <div class="emotion-row">
                   <div class="emotion-label">${emo}</div>
-                  ${[0,1,2,3,4,5,6,7].map(v => `
+                  ${[0,1,2,3,4,5,6,7].map((v, vidx) => `
                     <label class="row-center">
-                      <input type="radio" name="${emo}_${i}" value="${v}" ${v===0?'required':''}/>
+                      <input type="radio" name="D2_${emo}_${i}" value="${v}" ${vidx===0 ? 'required' : ''} />
                       <span class="emotion-dot"></span>
                     </label>
                   `).join("")}
@@ -807,158 +965,141 @@
             </div>
           </div>
 
-          <!-- 3-3 복합감정 여부 -->
+          <!-- D-2-3: multi emotion -->
           <div class="question-block">
             <div class="question-title">
-              3-3. (이모티콘 ${i}) 이 이모티콘에서 두 가지 이상의 감정이 동시에 느껴졌나요?
-              <span class="required">*</span>
+              D-2-${i}-3. 이 이모티콘에서 두 가지 이상의 감정이 동시에 느껴졌나요? <span class="required">*</span>
             </div>
             <div class="options">
-              <label class="option"><input type="radio" name="multi_emotion_${i}" value="예" required /> <span>예</span></label>
-              <label class="option"><input type="radio" name="multi_emotion_${i}" value="아니오" /> <span>아니오</span></label>
+              <label class="option"><input type="radio" name="D2_multi_${i}" value="예" required /> <span>예</span></label>
+              <label class="option"><input type="radio" name="D2_multi_${i}" value="아니오" /> <span>아니오</span></label>
             </div>
           </div>
 
-          <!-- 3-4 판단 요소 -->
+          <!-- D-2-4: difficulty / clarity -->
           <div class="question-block">
             <div class="question-title">
-              3-4. (이모티콘 ${i}) 이 이모티콘의 감정을 판단하는 데 어떤 요소가 가장 중요하다고 생각하셨나요?
-              <span class="required">*</span>
-            </div>
-            <div class="options">
-              <label class="option"><input type="radio" name="key_cue_${i}" value="눈모양" required /> <span>눈모양</span></label>
-              <label class="option"><input type="radio" name="key_cue_${i}" value="입모양" /> <span>입모양</span></label>
-              <label class="option"><input type="radio" name="key_cue_${i}" value="몸짓" /> <span>몸짓</span></label>
-              <label class="option"><input type="radio" name="key_cue_${i}" value="외부 요소" /> <span>외부 요소(배경, 이펙트 등)</span></label>
-              <label class="option"><input type="radio" name="key_cue_${i}" value="기타" /> <span>기타</span></label>
-            </div>
-          </div>
-
-          <!-- 3-5 의미 이해 어려움 -->
-          <div class="question-block">
-            <div class="question-title">
-              3-5. (이모티콘 ${i}) 이 이모티콘의 의미를 이해하는 데 어려움이 있었나요?
-              <span class="required">*</span>
+              D-2-${i}-4. 이 이모티콘의 의미를 이해하는 데 어려움이 있었나요? <span class="required">*</span>
             </div>
             <div class="question-desc">1 = 전혀 어렵지 않았다 ~ 7 = 매우 어려웠다</div>
-            <div class="likert-row">
-              ${[1,2,3,4,5,6,7].map(v => `
-                <label class="likert-item">
-                  <input type="radio" name="emoji_difficulty_${i}" value="${v}" ${v===1?'required':''}/>
-                  <span class="emotion-dot"></span>
-                  <span class="likert-number">${v}</span>
-                </label>
-              `).join("")}
-            </div>
+            ${renderLikert(`D2_difficulty_${i}`, 1, 7, true)}
           </div>
 
-          <!-- 3-6 감정 명확성 -->
           <div class="question-block">
             <div class="question-title">
-              3-6. (이모티콘 ${i}) 이 이모티콘이 표현하는 감정이 명확하다고 느끼셨나요?
-              <span class="required">*</span>
+              D-2-${i}-5. 이 이모티콘이 표현하는 감정이 명확하다고 느끼셨나요? <span class="required">*</span>
             </div>
             <div class="question-desc">1 = 전혀 명확하지 않다 ~ 7 = 매우 명확하다</div>
-            <div class="likert-row">
-              ${[1,2,3,4,5,6,7].map(v => `
-                <label class="likert-item">
-                  <input type="radio" name="emoji_clarity_${i}" value="${v}" ${v===1?'required':''}/>
-                  <span class="emotion-dot"></span>
-                  <span class="likert-number">${v}</span>
-                </label>
-              `).join("")}
-            </div>
+            ${renderLikert(`D2_clarity_${i}`, 1, 7, true)}
           </div>
 
-          <!-- 3-7 사용 대상 (복수 선택) -->
-          <div class="question-block">
+          <!-- D-2-6: target (checkbox - min 1) -->
+          <div class="question-block" data-min-check="1" data-group="D2_target_${i}">
             <div class="question-title">
-              3-7. (이모티콘 ${i}) 이 이모티콘을 누구에게 사용할 수 있다고 생각하나요? (복수 선택 가능)
-              <span class="required">*</span>
+              D-2-${i}-6. 이 이모티콘을 누구에게 사용할 수 있다고 생각하나요? (복수 선택) <span class="required">*</span>
             </div>
             <div class="options">
-              <label class="option"><input type="checkbox" name="emoji_target_${i}" value="부모님" /> <span>부모님</span></label>
-              <label class="option"><input type="checkbox" name="emoji_target_${i}" value="윗사람" /> <span>윗사람(직장 상사/교수님 등)</span></label>
-              <label class="option"><input type="checkbox" name="emoji_target_${i}" value="친구" /> <span>친구</span></label>
-              <label class="option"><input type="checkbox" name="emoji_target_${i}" value="아랫사람" /> <span>아랫사람(후배/동생)</span></label>
-              <label class="option"><input type="checkbox" name="emoji_target_${i}" value="모르는 사람/온라인 상대" /> <span>모르는 사람/온라인 상대</span></label>
-              <label class="option"><input type="checkbox" name="emoji_target_${i}" value="누구에게나 사용할 수 있다" /> <span>누구에게나 사용할 수 있다</span></label>
+              <label class="option"><input type="checkbox" name="D2_target_${i}" value="부모님" /> <span>부모님</span></label>
+              <label class="option"><input type="checkbox" name="D2_target_${i}" value="윗사람" /> <span>윗사람(직장 상사/교수님 등)</span></label>
+              <label class="option"><input type="checkbox" name="D2_target_${i}" value="친구" /> <span>친구</span></label>
+              <label class="option"><input type="checkbox" name="D2_target_${i}" value="아랫사람" /> <span>아랫사람(후배/동생)</span></label>
+              <label class="option"><input type="checkbox" name="D2_target_${i}" value="모르는 사람/온라인 상대" /> <span>모르는 사람/온라인 상대</span></label>
+              <label class="option"><input type="checkbox" name="D2_target_${i}" value="누구에게나 사용할 수 있다" /> <span>누구에게나 사용할 수 있다</span></label>
             </div>
           </div>
 
-          <!-- 3-8 상황 -->
-          <div class="question-block">
-            <div class="question-title">
-              3-8. (이모티콘 ${i}) 이 이모티콘을 가장 적절하게 사용할 수 있는 상황은 무엇인가요?
-              <span class="required">*</span>
-            </div>
-            <div class="question-desc">가장 잘 어울린다고 생각하는 상황을 하나 선택해 주세요.</div>
-            <div class="options">
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="시험에 합격했을 때" required /> <span>시험에 합격했을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="교수님께 칭찬받았을 때" /> <span>교수님께 칭찬받았을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="연인과 헤어졌을 때" /> <span>연인과 헤어졌을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="일이 잘 안 되었을 때" /> <span>일이 잘 안 되었을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="새치기를 당했을 때" /> <span>새치기를 당했을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="과제를 실수로 지웠을 때" /> <span>과제를 실수로 지웠을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="갑자기 큰 소리를 들었을 때" /> <span>갑자기 큰 소리를 들었을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="뒤에서 갑자기 말 걸었을 때" /> <span>뒤에서 갑자기 말 걸었을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="중요한 발표를 앞두었을 때" /> <span>중요한 발표를 앞두었을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="밤길에 이상한 소리가 들렸을 때" /> <span>밤길에 이상한 소리가 들렸을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="쓰레기 악취를 맡았을 때" /> <span>쓰레기 악취를 맡았을 때</span></label>
-              <label class="option"><input type="radio" name="emoji_situation_${i}" value="곰팡이 핀 음식을 봤을 때" /> <span>곰팡이 핀 음식을 봤을 때</span></label>
-            </div>
-          </div>
-
-          <input type="hidden" name="s3_emoji_${i}" value="${file}">
+          <input type="hidden" name="D2_emoji_${i}" value="${file}">
+          <input type="hidden" name="D2_order_${i}" value="${i}">
         `;
 
-        s3Container.appendChild(wrap);
+        d2.appendChild(wrap);
       });
 
-      // --- step navigation ---
-      const step1 = document.getElementById("step1");
-      const step2 = document.getElementById("step2");
-      const step3 = document.getElementById("step3");
+      // -------------------------
+      // (C) PART E 랜덤 렌더링 (1~9)
+      // -------------------------
+      const partEItems = [
+        { code: "E_PubNeg_1", text: "공적인 대화에서 내가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Negative)" },
+        { code: "E_PubNeg_2R", text: "공적인 대화에서 나는 부정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Public×Negative)" },
+        { code: "E_PubNeg_3", text: "공적인 대화에서 상대가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Negative)" },
+        { code: "E_PubNeg_4R", text: "공적인 대화에서 상대가 사용하는 부정적인 이모티콘은 종종 이해하기 어렵다. (R) (Public×Negative)" },
 
-      function showStep(stepNum) {
-        [step1, step2, step3].forEach((el, idx) => {
-          if (idx === stepNum - 1) {
-            el.classList.add("step-active");
-          } else {
-            el.classList.remove("step-active");
-          }
-        });
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
+        { code: "E_PriNeg_1", text: "사적인 대화에서 내가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Negative)" },
+        { code: "E_PriNeg_2R", text: "사적인 대화에서 나는 부정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Private×Negative)" },
+        { code: "E_PriNeg_3", text: "사적인 대화에서 상대가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Negative)" },
+        { code: "E_PriNeg_4R", text: "사적인 대화에서 상대가 사용하는 부정적인 이모티콘은 종종 이해하기 어렵다. (R) (Private×Negative)" },
 
-      document.getElementById("to-step2").addEventListener("click", () => showStep(2));
+        { code: "E_PubPos_1", text: "공적인 대화에서 내가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Positive)" },
+        { code: "E_PubPos_2R", text: "공적인 대화에서 나는 긍정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Public×Positive)" },
+        { code: "E_PubPos_3", text: "공적인 대화에서 상대가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Positive)" },
+        { code: "E_PubPos_4R", text: "공적인 대화에서 상대가 사용하는 긍정적인 이모티콘은 종종 이해하기 어렵다. (R) (Public×Positive)" },
+
+        { code: "E_PriPos_1", text: "사적인 대화에서 내가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Positive)" },
+        { code: "E_PriPos_2R", text: "사적인 대화에서 나는 긍정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Private×Positive)" },
+        { code: "E_PriPos_3", text: "사적인 대화에서 상대가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Positive)" },
+        { code: "E_PriPos_4R", text: "사적인 대화에서 상대가 사용하는 긍정적인 이모티콘은 종종 이해하기 어렵다. (R) (Private×Positive)" },
+      ];
+
+      const partEContainer = document.getElementById("partE-container");
+      shuffle(partEItems).forEach((it, idx) => {
+        const block = document.createElement("div");
+        block.className = "question-block";
+        block.innerHTML = `
+          <div class="question-title">
+            E-${idx+1}. ${it.text} <span class="required">*</span>
+          </div>
+          <div class="question-desc">1 = 매우 그렇지 않다 ~ 9 = 매우 그렇다</div>
+          ${renderLikert(it.code, 1, 9, true)}
+        `;
+        partEContainer.appendChild(block);
+      });
+
+      // =========================
+      // 6) 네비게이션 + 검증
+      // =========================
+      document.getElementById("to-step2").addEventListener("click", () => {
+        if (validateStep(step1, err1)) showStep(2);
+      });
       document.getElementById("back-to-step1").addEventListener("click", () => showStep(1));
-      document.getElementById("to-step3").addEventListener("click", () => showStep(3));
+
+      document.getElementById("to-step3").addEventListener("click", () => {
+        if (validateStep(step2, err2)) showStep(3);
+      });
       document.getElementById("back-to-step2").addEventListener("click", () => showStep(2));
 
-      // --- submit handling ---
-      const form = document.getElementById("survey-form");
-      const thank = document.getElementById("thank-you");
+      document.getElementById("to-step4").addEventListener("click", () => {
+        if (validateStep(step3, err3)) showStep(4);
+      });
+      document.getElementById("back-to-step3").addEventListener("click", () => showStep(3));
 
-      form.addEventListener("submit", (e) => {
+      document.getElementById("to-step5").addEventListener("click", () => {
+        if (validateStep(step4, err4)) showStep(5);
+      });
+      document.getElementById("back-to-step4").addEventListener("click", () => showStep(4));
+
+      // =========================
+      // 7) 최종 제출: step5 검증 + 구글폼 전송
+      // =========================
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        if (!validateStep(step5, err5)) return;
 
-        const formData = new FormData(form);
-        const data = {};
-        for (const [key, value] of formData.entries()) {
-          if (data[key]) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
+        // 구글폼 URL/매핑이 비어있으면 실수 방지
+        if (!GOOGLE_FORM_ACTION_URL || GOOGLE_FORM_ACTION_URL.includes("PUT_YOUR")) {
+          alert("구글폼 연동 설정이 비어있습니다.\nGOOGLE_FORM_ACTION_URL과 ENTRY_MAP을 설정해 주세요.");
+          return;
         }
 
-        console.log("응답 데이터:", data);
+        try {
+          await submitToGoogleForm(form);
 
-        form.style.display = "none";
-        thank.style.display = "block";
-        window.scrollTo({ top: 0, behavior: "smooth" });
+          form.style.display = "none";
+          thank.style.display = "block";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } catch (err) {
+          console.error(err);
+          alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
+        }
       });
     });
   </script>
