@@ -536,44 +536,28 @@
   // ✅ Apps Script 전송
   // - key 순서를 안정화하기 위해 FIELD_ORDER를 정의하고 그 순서대로 data 구성
   // =========================
-  async function submitToSheet(formEl, fieldOrder) {
-    const fd = new FormData(formEl);
+  async function submitToSheet(formEl) {
+  const fd = new FormData(formEl);
+  const data = {};
 
-    // 1) raw를 먼저 모아두고
-    const raw = {};
-    for (const [k, v] of fd.entries()) {
-      if (raw[k]) {
-        if (!Array.isArray(raw[k])) raw[k] = [raw[k]];
-        raw[k].push(v);
-      } else {
-        raw[k] = v;
-      }
-    }
-
-    // 2) 원하는 순서(fieldOrder)로 data 객체 생성 (Object.keys 순서가 고정됨)
-    const data = {};
-    data._submitted_at = new Date().toISOString();
-
-    // fieldOrder에 있는 것부터
-    fieldOrder.forEach((k) => {
-      if (raw[k] === undefined) return;
-      data[k] = raw[k];
-      delete raw[k];
-    });
-
-    // 나머지(혹시 빠진 hidden 등)는 뒤에 붙임
-    Object.keys(raw).forEach((k) => { data[k] = raw[k]; });
-
-    const res = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (!res.ok) {
-      throw new Error(`Apps Script 응답 오류: ${res.status}`);
+  for (const [k, v] of fd.entries()) {
+    if (data[k]) {
+      if (!Array.isArray(data[k])) data[k] = [data[k]];
+      data[k].push(v);
+    } else {
+      data[k] = v;
     }
   }
+
+  data._submitted_at = new Date().toISOString();
+
+  await fetch(API_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(data),
+  });
+}
 
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("survey-form");
@@ -853,28 +837,22 @@
     // 제출
     // =========================
     form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      if (!validateStep(step5, err5)) return;
-
-      const submitBtn = document.getElementById("submit-btn");
-      submitBtn.disabled = true;
-      submitBtn.textContent = "전송 중...";
-
-      try {
-        await submitToSheet(form, FIELD_ORDER);
-        form.style.display = "none";
-        thank.style.display = "block";
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } catch (err) {
-        console.error(err);
-        alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.\n" + String(err));
-        submitBtn.disabled = false;
-        submitBtn.textContent = "응답 제출하기";
-      }
+  e.preventDefault();
+  // validateStep 끈 상태면 여기서 바로
+  try {
+    await submitToSheet(form);
+    form.style.display = "none";
+    thank.style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } catch (err) {
+    console.error(err);
+    alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
+  }
     });
   });
 </script>
 
 </body>
 </html>
+
 
