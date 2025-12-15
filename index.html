@@ -163,12 +163,6 @@
       margin-bottom: 4px;
     }
 
-    .required {
-      color: #ef4444;
-      margin-left: 4px;
-      font-weight: 700;
-    }
-
     .question-desc {
       font-size: 0.8rem;
       color: #6b7280;
@@ -347,7 +341,7 @@
     .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
 
     .error-toast {
-      display: none;
+      display: none; /* 필수 검증 제거했으니 사용 안 함 */
       margin-top: 12px;
       padding: 10px 12px;
       border-radius: 14px;
@@ -396,7 +390,7 @@
           <h1>카카오 이모티콘 사용 및 감정 판단 설문</h1>
           <p class="subtitle">
             이 설문은 카카오 이모티콘 사용 경험과 이모티콘이 표현하는 감정에 대한 판단을 조사하기 위한 것입니다.<br />
-            <strong>* 표시된 문항은 필수 응답</strong>입니다.
+            (모든 문항은 선택 응답입니다.)
           </p>
         </div>
       </header>
@@ -404,8 +398,9 @@
       <hr />
 
       <form id="survey-form">
-
-        <!-- STEP1 -->
+        <!-- ======================================================
+             [PAGE 1] STEP1 - PART A + PART B
+        ======================================================= -->
         <section id="step1" class="step step-active">
           <div class="session-title">PAGE 1. 인구통계 정보 & 카카오톡 사용 경험</div>
           <div class="session-subtitle">PART A, PART B에 답해주세요.</div>
@@ -413,38 +408,38 @@
           <div class="session-title" style="margin-top:10px;">PART A. 인구통계학적 정보</div>
 
           <div class="question-block">
-            <div class="question-title">A1. 이름 <span class="required">*</span></div>
+            <div class="question-title">A1. 이름</div>
             <div class="question-desc">이름을 입력해주세요.</div>
-            <input type="text" name="A1_name" required />
+            <input type="text" name="A1_name" />
           </div>
 
           <div class="question-block">
-            <div class="question-title">A2. 연령(만) <span class="required">*</span></div>
+            <div class="question-title">A2. 연령(만)</div>
             <div class="question-desc">숫자 입력 (10–120)</div>
-            <input type="number" name="A2_age" min="10" max="120" required />
+            <input type="number" name="A2_age" min="10" max="120" />
           </div>
 
           <div class="question-block">
-            <div class="question-title">A3. 성별 <span class="required">*</span></div>
+            <div class="question-title">A3. 성별</div>
             <div class="options">
-              <label class="option"><input type="radio" name="A3_gender" value="남성" required /> <span>남성</span></label>
+              <label class="option"><input type="radio" name="A3_gender" value="남성" /> <span>남성</span></label>
               <label class="option"><input type="radio" name="A3_gender" value="여성" /> <span>여성</span></label>
             </div>
           </div>
 
           <div class="question-block">
-            <div class="question-title">A4. 국적 <span class="required">*</span></div>
-            <input type="text" name="A4_nationality" required />
+            <div class="question-title">A4. 국적</div>
+            <input type="text" name="A4_nationality" />
           </div>
 
           <div class="question-block">
-            <div class="question-title">A5. 현재 거주 국가 <span class="required">*</span></div>
-            <input type="text" name="A5_country" required />
+            <div class="question-title">A5. 현재 거주 국가</div>
+            <input type="text" name="A5_country" />
           </div>
 
           <div class="question-block">
-            <div class="question-title">A6. 모국어(L1) <span class="required">*</span></div>
-            <input type="text" name="A6_L1" required />
+            <div class="question-title">A6. 모국어(L1)</div>
+            <input type="text" name="A6_L1" />
           </div>
 
           <div class="question-block">
@@ -495,9 +490,9 @@
           <div class="session-title" style="margin-top:18px;">PART B. 카카오톡 사용 경험</div>
 
           <div class="question-block">
-            <div class="question-title">B1. 카카오톡 사용 기간 <span class="required">*</span></div>
+            <div class="question-title">B1. 카카오톡 사용 기간</div>
             <div class="options">
-              <label class="option"><input type="radio" name="B1_kakao_period" value="3개월 미만(1)" required /><span>3개월 미만(1)</span></label>
+              <label class="option"><input type="radio" name="B1_kakao_period"label value="3개월 미만(1)" /><span>3개월 미만(1)</span></label>
               <label class="option"><input type="radio" name="B1_kakao_period" value="3~6개월(2)" /><span>3~6개월(2)</span></label>
               <label class="option"><input type="radio" name="B1_kakao_period" value="6개월~1년(3)" /><span>6개월~1년(3)</span></label>
               <label class="option"><input type="radio" name="B1_kakao_period" value="1~2년(4)" /><span>1~2년(4)</span></label>
@@ -506,9 +501,9 @@
           </div>
 
           <div class="question-block">
-            <div class="question-title">B2. 하루 평균 카카오톡 사용 시간 <span class="required">*</span></div>
+            <div class="question-title">B2. 하루 평균 카카오톡 사용 시간</div>
             <div class="options">
-              <label class="option"><input type="radio" name="B2_kakao_time" value="30분 미만(1)" required /><span>30분 미만(1)</span></label>
+              <label class="option"><input type="radio" name="B2_kakao_time" value="30분 미만(1)" /><span>30분 미만(1)</span></label>
               <label class="option"><input type="radio" name="B2_kakao_time" value="30분~1시간(2)" /><span>30분~1시간(2)</span></label>
               <label class="option"><input type="radio" name="B2_kakao_time" value="1~2시간(3)" /><span>1~2시간(3)</span></label>
               <label class="option"><input type="radio" name="B2_kakao_time" value="2~3시간(4)" /><span>2~3시간(4)</span></label>
@@ -517,9 +512,9 @@
           </div>
 
           <div class="question-block">
-            <div class="question-title">B3. 카카오톡 대화 중 이모티콘 사용 빈도 <span class="required">*</span></div>
+            <div class="question-title">B3. 카카오톡 대화 중 이모티콘 사용 빈도</div>
             <div class="options">
-              <label class="option"><input type="radio" name="B3_emoji_freq" value="거의 사용하지 않음(1)" required /><span>거의 사용하지 않음(1)</span></label>
+              <label class="option"><input type="radio" name="B3_emoji_freq" value="거의 사용하지 않음(1)" /><span>거의 사용하지 않음(1)</span></label>
               <label class="option"><input type="radio" name="B3_emoji_freq" value="가끔 사용(2)" /><span>가끔 사용(2)</span></label>
               <label class="option"><input type="radio" name="B3_emoji_freq" value="보통(3)" /><span>보통(3)</span></label>
               <label class="option"><input type="radio" name="B3_emoji_freq" value="자주 사용(4)" /><span>자주 사용(4)</span></label>
@@ -528,9 +523,9 @@
           </div>
 
           <div class="question-block">
-            <div class="question-title">B4. 구매한 카카오톡 이모티콘 개수 <span class="required">*</span></div>
+            <div class="question-title">B4. 구매한 카카오톡 이모티콘 개수</div>
             <div class="options">
-              <label class="option"><input type="radio" name="B4_emoji_count" value="없음(1)" required /><span>없음(1)</span></label>
+              <label class="option"><input type="radio" name="B4_emoji_count" value="없음(1)" /><span>없음(1)</span></label>
               <label class="option"><input type="radio" name="B4_emoji_count" value="1~3개(2)" /><span>1~3개(2)</span></label>
               <label class="option"><input type="radio" name="B4_emoji_count" value="4~10개(3)" /><span>4~10개(3)</span></label>
               <label class="option"><input type="radio" name="B4_emoji_count" value="11~20개(4)" /><span>11~20개(4)</span></label>
@@ -538,9 +533,8 @@
             </div>
           </div>
 
-          <div class="question-block" data-min-check="1" data-group="B5_emoji_situations">
-            <div class="question-title">B5. 주로 어떤 상황에서 이모티콘을 사용하는가? (복수 선택) <span class="required">*</span></div>
-            <div class="question-desc">최소 1개 이상 선택해주세요.</div>
+          <div class="question-block">
+            <div class="question-title">B5. 주로 어떤 상황에서 이모티콘을 사용하는가? (복수 선택)</div>
             <div class="options">
               <label class="option"><input type="checkbox" name="B5_emoji_situations" value="감정을 표현할 때" /> <span>감정을 표현할 때</span></label>
               <label class="option"><input type="checkbox" name="B5_emoji_situations" value="대화 분위기를 부드럽게 할 때" /> <span>대화 분위기를 부드럽게 할 때</span></label>
@@ -550,13 +544,12 @@
               <label class="option"><input type="checkbox" name="B5_emoji_situations" value="상대방에게 공감을 표시할 때" /> <span>상대방에게 공감을 표시할 때</span></label>
               <label class="option"><input type="checkbox" name="B5_emoji_situations" value="기타" /> <span>기타</span></label>
             </div>
-            <div class="question-desc" style="margin-top:10px;">기타 선택 시 작성해 주세요.</div>
-            <textarea name="B5_other" placeholder=" "></textarea>
+            <div class="question-desc" style="margin-top:10px;">(선택) 기타 선택 시 작성해 주세요.</div>
+            <textarea name="B5_other" placeholder=""></textarea>
           </div>
 
-          <div class="question-block" data-min-check="1" data-group="B6_other_messengers">
-            <div class="question-title">B6. 카카오톡 외에 자주 사용하는 메신저 앱 (복수 선택) <span class="required">*</span></div>
-            <div class="question-desc">최소 1개 이상 선택해주세요.</div>
+          <div class="question-block">
+            <div class="question-title">B6. 카카오톡 외에 자주 사용하는 메신저 앱 (복수 선택)</div>
             <div class="options">
               <label class="option"><input type="checkbox" name="B6_other_messengers" value="WhatsApp" /> <span>WhatsApp</span></label>
               <label class="option"><input type="checkbox" name="B6_other_messengers" value="Telegram" /> <span>Telegram</span></label>
@@ -566,7 +559,7 @@
               <label class="option"><input type="checkbox" name="B6_other_messengers" value="Instagram DM" /> <span>Instagram DM</span></label>
               <label class="option"><input type="checkbox" name="B6_other_messengers" value="기타" /> <span>기타</span></label>
             </div>
-            <div class="question-desc" style="margin-top:10px;">기타 선택 시 작성해 주세요.</div>
+            <div class="question-desc" style="margin-top:10px;">(선택) 기타 선택 시 작성해 주세요.</div>
             <textarea name="B6_other" placeholder="기타 메신저(선택)"></textarea>
           </div>
 
@@ -575,20 +568,19 @@
             <textarea name="B7_detail" placeholder=""></textarea>
           </div>
 
-          <!-- ✅ FIX: step1 에러 + 다음 버튼 추가 -->
-          <div class="error-toast" id="error-step1"></div>
           <div class="buttons buttons-right">
             <button type="button" class="btn btn-primary" id="to-step2">다음 ▶</button>
           </div>
         </section>
 
-        <!-- STEP2 -->
+        <!-- ======================================================
+             [PAGE 2] STEP2 - PART C
+        ======================================================= -->
         <section id="step2" class="step">
           <div class="session-title">PAGE 2. PART C 개인/집단주의 척도</div>
-          <div class="session-subtitle">1(매우 동의하지 않음) ~ 9(매우 동의함)</div>
+          <div class="session-subtitle">1 ~ 9 (랜덤 제시)</div>
 
           <div id="partC-container"></div>
-
           <div class="error-toast" id="error-step2"></div>
 
           <div class="buttons">
@@ -597,7 +589,9 @@
           </div>
         </section>
 
-        <!-- STEP3 -->
+        <!-- ======================================================
+             [PAGE 3] STEP3 - PART D-1
+        ======================================================= -->
         <section id="step3" class="step">
           <div class="session-title">PAGE 3. PART D-1 이모티콘 주관적 감정 인식</div>
           <div class="session-subtitle">아래 12개 이모티콘 각각에 대해, 어떤 감정을 표현한다고 생각하는지 적어 주세요. (랜덤 제시)</div>
@@ -612,7 +606,9 @@
           </div>
         </section>
 
-        <!-- STEP4 -->
+        <!-- ======================================================
+             [PAGE 4] STEP4 - PART D-2
+        ======================================================= -->
         <section id="step4" class="step">
           <div class="session-title">PAGE 4. PART D-2 이모티콘 정서 판단 및 이해도</div>
           <div class="session-subtitle">
@@ -629,10 +625,12 @@
           </div>
         </section>
 
-        <!-- STEP5 -->
+        <!-- ======================================================
+             [PAGE 5] STEP5 - PART E
+        ======================================================= -->
         <section id="step5" class="step">
           <div class="session-title">PAGE 5. PART E 이모티콘 표현 및 수용성 척도</div>
-          <div class="session-subtitle">1(매우 그렇지 않다) ~ 9(매우 그렇다) (랜덤 제시)</div>
+          <div class="session-subtitle">1 ~ 9 (랜덤 제시)</div>
 
           <div id="partE-container"></div>
 
@@ -643,402 +641,366 @@
             <button type="submit" class="btn btn-primary">응답 제출하기</button>
           </div>
         </section>
-
       </form>
 
       <div id="thank-you">
         <h2>응답해 주셔서 감사합니다 😊</h2>
         <p>
           설문 응답이 전송되었습니다.<br />
-          (응답이 전송되면 이 페이지가 완료 화면으로 전환됩니다.)
+          (전송 후 이 페이지가 완료 화면으로 전환됩니다.)
         </p>
       </div>
 
     </div>
   </div>
 
-  <script>
-    // ✅ Apps Script(Web App) 연동 설정
-    const API_URL =
-      "https://script.google.com/macros/s/AKfycbwLXMlc8Ph9qkNxBusiDxAIFTcw_4a9cqNr9JGSxTJ-cL4mlCKTuB1lM5QtkuE_xo3s8g/exec";
+<script>
+  // ======================================================
+  // ✅ [JS-0] Apps Script(Web App) 연동 설정 (너가 준 최신 URL)
+  // ======================================================
+  const API_URL =
+    "https://script.google.com/macros/s/AKfycbwfVVOGRE9dTPOOMfFm6r5PtbhrsruievXhszKFdwhbX6hFa08XndQqWMtYaTqfqtsDnA/exec";
 
-    function shuffle(array) {
-      const arr = array.slice();
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
+  // ======================================================
+  // [JS-1] shuffle
+  // ======================================================
+  function shuffle(array) {
+    const arr = array.slice();
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  // ======================================================
+  // [JS-2] Likert 렌더러 (필수 제거 -> required=false로 사용)
+  // ======================================================
+  function renderLikert(name, min, max) {
+    const vals = [];
+    for (let v = min; v <= max; v++) vals.push(v);
+    return `
+      <div class="likert-row">
+        ${vals.map((v) => `
+          <label class="likert-item">
+            <input type="radio" name="${name}" value="${v}" />
+            <span class="emotion-dot"></span>
+            <span class="likert-number">${v}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  // ======================================================
+  // ✅ [JS-3] 페이지 검증 로직: 필수 제거 -> 항상 true
+  // ======================================================
+  function validateStep() { return true; }
+
+  // ======================================================
+  // ✅ [JS-4] Apps Script로 전송 (no-cors + urlencoded)
+  // ======================================================
+  async function submitToSheet(formEl) {
+    const fd = new FormData(formEl);
+    fd.append("_submitted_at", new Date().toISOString());
+
+    const payload = new URLSearchParams();
+    for (const [k, v] of fd.entries()) payload.append(k, v);
+
+    await fetch(API_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body: payload.toString(),
+    });
+  }
+
+  // ======================================================
+  // [JS-5] DOMContentLoaded
+  // ======================================================
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("survey-form");
+    const thank = document.getElementById("thank-you");
+
+    const step1 = document.getElementById("step1");
+    const step2 = document.getElementById("step2");
+    const step3 = document.getElementById("step3");
+    const step4 = document.getElementById("step4");
+    const step5 = document.getElementById("step5");
+
+    function showStep(n) {
+      [step1, step2, step3, step4, step5].forEach((el, idx) => {
+        if (idx === n - 1) el.classList.add("step-active");
+        else el.classList.remove("step-active");
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function renderLikert(name, min, max, required = true) {
-      const vals = [];
-      for (let v = min; v <= max; v++) vals.push(v);
-      return `
-        <div class="likert-row">
-          ${vals.map((v, idx) => `
-            <label class="likert-item">
-              <input type="radio" name="${name}" value="${v}" ${required && idx === 0 ? "required" : ""} />
-              <span class="emotion-dot"></span>
-              <span class="likert-number">${v}</span>
-            </label>
-          `).join("")}
+    // -------------------------
+    // [JS-5A] PART C 랜덤 렌더링
+    // -------------------------
+    const partCItems = [
+      { code: "C_HC_1", text: "내 행복은 주변 사람들의 행복에 큰 영향을 받는다. (HC)" },
+      { code: "C_HC_2", text: "동료들의 행복이 나에게 중요하다. (HC)" },
+      { code: "C_HC_3", text: "동료가 상을 받으면 나도 자랑스러울 것이다. (HC)" },
+      { code: "C_HC_4", text: "나는 다른 사람들과 협동할 때 기분이 좋다. (HC)" },
+
+      { code: "C_VC_1", text: "나는 매우 싫어하는 일이라도 가족을 기쁘게 하는 일이라면 하겠다. (VC)" },
+      { code: "C_VC_2", text: "나는 집단의 이익을 위해 내 개인적인 이익을 희생한다. (VC)" },
+      { code: "C_VC_3", text: "자식은 부모님이 훌륭한 상을 받으시면 영광스럽게 생각해야 한다. (VC)" },
+      { code: "C_VC_4", text: "내가 아무리 좋아하는 일이라도 가족이 반대하면 포기한다. (VC)" },
+
+      { code: "C_HI_1", text: "나는 남들과 다른 나의 개성있는 모습을 좋아한다. (HI)" },
+      { code: "C_HI_2", text: "나는 종종 나만의 방식대로 행동한다. (HI)" },
+      { code: "C_HI_3", text: "나는 개성이 뚜렷한 사람이다. (HI)" },
+
+      { code: "C_VI_1", text: "나는 남들과 경쟁하는 환경에서 일하는 것을 즐긴다. (VI)" },
+      { code: "C_VI_2", text: "경쟁은 자연의 법칙이다. (VI)" },
+      { code: "C_VI_3", text: "경쟁 없이는 좋은 사회를 만들 수 없다. (VI)" },
+    ];
+
+    const partCContainer = document.getElementById("partC-container");
+    shuffle(partCItems).forEach((it, idx) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      block.innerHTML = `
+        <div class="question-title">
+          C-${idx + 1}. ${it.text}
         </div>
+        <div class="question-desc">1 ~ 9</div>
+        ${renderLikert(it.code, 1, 9)}
       `;
-    }
+      partCContainer.appendChild(block);
+    });
 
-    function validateStep(stepEl, errorEl) {
-      const requiredFields = stepEl.querySelectorAll("[required]");
-      for (const el of requiredFields) {
-        if (el.type === "radio") {
-          const name = el.name;
-          const checked = stepEl.querySelector(
-            `input[type="radio"][name="${CSS.escape(name)}"]:checked`
-          );
-          if (!checked) {
-            errorEl.style.display = "block";
-            errorEl.textContent =
-              "필수 문항을 모두 응답해 주세요. (선택하지 않은 항목이 있습니다.)";
-            return false;
-          }
-        } else if (el.tagName === "TEXTAREA" || el.tagName === "INPUT") {
-          if (!el.checkValidity()) {
-            errorEl.style.display = "block";
-            errorEl.textContent =
-              "필수 문항을 모두 응답해 주세요. (입력하지 않은 항목이 있습니다.)";
-            el.reportValidity?.();
-            return false;
-          }
-        }
-      }
+    // -------------------------
+    // [JS-5B] PART D-1 / D-2 이모티콘 랜덤 (동일 순서 유지)
+    // -------------------------
+    const emojiFiles = [
+      "emoji01.png","emoji02.png","emoji03.png","emoji04.png",
+      "emoji05.png","emoji06.png","emoji07.png","emoji08.png",
+      "emoji09.png","emoji10.png","emoji11.png","emoji12.png"
+    ];
+    const emojiOrder = shuffle(emojiFiles);
 
-      const groups = stepEl.querySelectorAll("[data-min-check]");
-      for (const groupEl of groups) {
-        const min = Number(groupEl.getAttribute("data-min-check") || "1");
-        const groupName = groupEl.getAttribute("data-group");
-        if (!groupName) continue;
+    const orderInput = document.createElement("input");
+    orderInput.type = "hidden";
+    orderInput.name = "emoji_order";
+    orderInput.value = emojiOrder.join(",");
+    form.appendChild(orderInput);
 
-        const checked = groupEl.querySelectorAll(
-          `input[type="checkbox"][name="${CSS.escape(groupName)}"]:checked`
-        ).length;
-        if (checked < min) {
-          errorEl.style.display = "block";
-          errorEl.textContent =
-            "필수 문항을 모두 응답해 주세요. (복수 선택 항목에서 최소 1개 이상 선택해야 합니다.)";
-          return false;
-        }
-      }
+    // D-1
+    const d1 = document.getElementById("partD1-container");
+    emojiOrder.forEach((file, idx) => {
+      const i = idx + 1;
+      const block = document.createElement("div");
+      block.className = "question-block white";
+      block.innerHTML = `
+        <div class="emoji-inline">
+          <img src="${file}" alt="이모티콘 ${i}" />
+        </div>
+        <div class="question-title">
+          D-1-${i}. 이 이모티콘은 어떤 감정을 표현하고 있다고 생각하나요?
+        </div>
+        <textarea name="D1_label_${i}"></textarea>
+        <input type="hidden" name="D1_emoji_${i}" value="${file}">
+        <input type="hidden" name="D1_order_${i}" value="${i}">
+      `;
+      d1.appendChild(block);
+    });
 
-      errorEl.style.display = "none";
-      errorEl.textContent = "";
-      return true;
-    }
+    // D-2
+    const d2 = document.getElementById("partD2-container");
+    const RANDOMIZE_BASIC_EMOTIONS = false;
+    const baseEmotions = ["기쁨","슬픔","화남","놀라움","두려움","혐오"];
 
-    async function submitToSheet(formEl) {
-      const fd = new FormData(formEl);
-      const data = {};
+    emojiOrder.forEach((file, idx) => {
+      const i = idx + 1;
+      const wrap = document.createElement("div");
+      wrap.className = "emoji-block";
 
-      for (const [k, v] of fd.entries()) {
-        if (data[k]) {
-          if (!Array.isArray(data[k])) data[k] = [data[k]];
-          data[k].push(v);
-        } else {
-          data[k] = v;
-        }
-      }
+      const emoList = RANDOMIZE_BASIC_EMOTIONS ? shuffle(baseEmotions) : baseEmotions;
 
-      data._submitted_at = new Date().toISOString();
-
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!res.ok) {
-        throw new Error(`Apps Script 응답 오류: ${res.status}`);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("survey-form");
-      const thank = document.getElementById("thank-you");
-
-      const step1 = document.getElementById("step1");
-      const step2 = document.getElementById("step2");
-      const step3 = document.getElementById("step3");
-      const step4 = document.getElementById("step4");
-      const step5 = document.getElementById("step5");
-
-      const err1 = document.getElementById("error-step1");
-      const err2 = document.getElementById("error-step2");
-      const err3 = document.getElementById("error-step3");
-      const err4 = document.getElementById("error-step4");
-      const err5 = document.getElementById("error-step5");
-
-      function showStep(n) {
-        [step1, step2, step3, step4, step5].forEach((el, idx) => {
-          if (idx === n - 1) el.classList.add("step-active");
-          else el.classList.remove("step-active");
-        });
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      // PART C
-      const partCItems = [
-        { code: "C_HC_1", text: "내 행복은 주변 사람들의 행복에 큰 영향을 받는다. (HC)" },
-        { code: "C_HC_2", text: "동료들의 행복이 나에게 중요하다. (HC)" },
-        { code: "C_HC_3", text: "동료가 상을 받으면 나도 자랑스러울 것이다. (HC)" },
-        { code: "C_HC_4", text: "나는 다른 사람들과 협동할 때 기분이 좋다. (HC)" },
-
-        { code: "C_VC_1", text: "나는 매우 싫어하는 일이라도 가족을 기쁘게 하는 일이라면 하겠다. (VC)" },
-        { code: "C_VC_2", text: "나는 집단의 이익을 위해 내 개인적인 이익을 희생한다. (VC)" },
-        { code: "C_VC_3", text: "자식은 부모님이 훌륭한 상을 받으시면 영광스럽게 생각해야 한다. (VC)" },
-        { code: "C_VC_4", text: "내가 아무리 좋아하는 일이라도 가족이 반대하면 포기한다. (VC)" },
-
-        { code: "C_HI_1", text: "나는 남들과 다른 나의 개성있는 모습을 좋아한다. (HI)" },
-        { code: "C_HI_2", text: "나는 종종 나만의 방식대로 행동한다. (HI)" },
-        { code: "C_HI_3", text: "나는 개성이 뚜렷한 사람이다. (HI)" },
-
-        { code: "C_VI_1", text: "나는 남들과 경쟁하는 환경에서 일하는 것을 즐긴다. (VI)" },
-        { code: "C_VI_2", text: "경쟁은 자연의 법칙이다. (VI)" },
-        { code: "C_VI_3", text: "경쟁 없이는 좋은 사회를 만들 수 없다. (VI)" },
-      ];
-
-      const partCContainer = document.getElementById("partC-container");
-      shuffle(partCItems).forEach((it, idx) => {
-        const block = document.createElement("div");
-        block.className = "question-block";
-        block.innerHTML = `
-          <div class="question-title">
-            C-${idx + 1}. ${it.text} <span class="required">*</span>
-          </div>
-          <div class="question-desc">1 = 매우 동의하지 않음 ~ 9 = 매우 동의함</div>
-          ${renderLikert(it.code, 1, 9, true)}
-        `;
-        partCContainer.appendChild(block);
-      });
-
-      // PART D
-      const emojiFiles = [
-        "emoji01.png","emoji02.png","emoji03.png","emoji04.png",
-        "emoji05.png","emoji06.png","emoji07.png","emoji08.png",
-        "emoji09.png","emoji10.png","emoji11.png","emoji12.png"
-      ];
-      const emojiOrder = shuffle(emojiFiles);
-
-      const orderInput = document.createElement("input");
-      orderInput.type = "hidden";
-      orderInput.name = "emoji_order";
-      orderInput.value = emojiOrder.join(",");
-      form.appendChild(orderInput);
-
-      const d1 = document.getElementById("partD1-container");
-      emojiOrder.forEach((file, idx) => {
-        const i = idx + 1;
-        const block = document.createElement("div");
-        block.className = "question-block white";
-        block.innerHTML = `
-          <div class="emoji-inline">
+      wrap.innerHTML = `
+        <div class="sticky-emoji-wrapper">
+          <div class="emoji-top-box">
             <img src="${file}" alt="이모티콘 ${i}" />
           </div>
+        </div>
+
+        <div class="question-block">
           <div class="question-title">
-            D-1-${i}. 이 이모티콘은 어떤 감정을 표현하고 있다고 생각하나요? <span class="required">*</span>
+            D-2-${i}-1. 이 이모티콘의 전반적인 정서를 평가해 주세요.
           </div>
-          <textarea name="D1_label_${i}" required></textarea>
-          <input type="hidden" name="D1_emoji_${i}" value="${file}">
-          <input type="hidden" name="D1_order_${i}" value="${i}">
-        `;
-        d1.appendChild(block);
-      });
+          <div class="question-desc">각 항목에 대해 1~7 사이에서 선택해 주세요.</div>
 
-      const d2 = document.getElementById("partD2-container");
-      const RANDOMIZE_BASIC_EMOTIONS = false;
-      const baseEmotions = ["기쁨","슬픔","화남","놀라움","두려움","혐오"];
-
-      emojiOrder.forEach((file, idx) => {
-        const i = idx + 1;
-        const wrap = document.createElement("div");
-        wrap.className = "emoji-block";
-
-        const emoList = RANDOMIZE_BASIC_EMOTIONS ? shuffle(baseEmotions) : baseEmotions;
-
-        wrap.innerHTML = `
-          <div class="sticky-emoji-wrapper">
-            <div class="emoji-top-box">
-              <img src="${file}" alt="이모티콘 ${i}" />
-            </div>
+          <div class="question-desc" style="margin-top:4px; margin-bottom:4px;">
+            (A) 긍정 정서: 1(전혀 없음) ~ 7(매우 긍정)
           </div>
+          ${renderLikert(`D2_pos_${i}`, 1, 7)}
 
-          <div class="question-block">
-            <div class="question-title">
-              D-2-${i}-1. 이 이모티콘의 전반적인 정서를 평가해 주세요. <span class="required">*</span>
-            </div>
-            <div class="question-desc">각 항목에 대해 1~7 사이에서 선택해 주세요.</div>
-
-            <div class="question-desc" style="margin-top:4px; margin-bottom:4px;">
-              (A) 긍정 정서: 1(전혀 없음) ~ 7(매우 긍정)
-            </div>
-            ${renderLikert(`D2_pos_${i}`, 1, 7, true)}
-
-            <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">
-              (B) 부정 정서: 1(전혀 없음) ~ 7(매우 부정)
-            </div>
-            ${renderLikert(`D2_neg_${i}`, 1, 7, true)}
-
-            <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">
-              (C) 각성 수준: 1(매우 차분) ~ 7(매우 각성)
-            </div>
-            ${renderLikert(`D2_arousal_${i}`, 1, 7, true)}
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">
+            (B) 부정 정서: 1(전혀 없음) ~ 7(매우 부정)
           </div>
+          ${renderLikert(`D2_neg_${i}`, 1, 7)}
 
-          <div class="question-block">
-            <div class="question-title">
-              D-2-${i}-2. 이 이모티콘이 다음 감정을 얼마나 표현한다고 느끼십니까? <span class="required">*</span>
+          <div class="question-desc" style="margin-top:10px; margin-bottom:4px;">
+            (C) 각성 수준: 1(매우 차분) ~ 7(매우 각성)
+          </div>
+          ${renderLikert(`D2_arousal_${i}`, 1, 7)}
+        </div>
+
+        <div class="question-block">
+          <div class="question-title">
+            D-2-${i}-2. 이 이모티콘이 다음 감정을 얼마나 표현한다고 느끼십니까?
+          </div>
+          <div class="question-desc">0 = 전혀 느껴지지 않는다 ~ 7 = 매우 강하게 느껴진다</div>
+
+          <div class="emotion-table">
+            <div class="emotion-row" style="background: transparent;">
+              <div></div>
+              ${[0,1,2,3,4,5,6,7].map(v => `<div class="row-center">${v}</div>`).join("")}
             </div>
-            <div class="question-desc">0 = 전혀 느껴지지 않는다 ~ 7 = 매우 강하게 느껴진다</div>
 
-            <div class="emotion-table">
-              <div class="emotion-row" style="background: transparent;">
-                <div></div>
-                ${[0,1,2,3,4,5,6,7].map(v => `<div class="row-center">${v}</div>`).join("")}
+            ${emoList.map((emo) => `
+              <div class="emotion-row">
+                <div class="emotion-label">${emo}</div>
+                ${[0,1,2,3,4,5,6,7].map((v) => `
+                  <label class="row-center">
+                    <input type="radio" name="D2_${emo}_${i}" value="${v}" />
+                    <span class="emotion-dot"></span>
+                  </label>
+                `).join("")}
               </div>
-
-              ${emoList.map((emo) => `
-                <div class="emotion-row">
-                  <div class="emotion-label">${emo}</div>
-                  ${[0,1,2,3,4,5,6,7].map((v, vidx) => `
-                    <label class="row-center">
-                      <input type="radio" name="D2_${emo}_${i}" value="${v}" ${vidx===0 ? 'required' : ''} />
-                      <span class="emotion-dot"></span>
-                    </label>
-                  `).join("")}
-                </div>
-              `).join("")}
-            </div>
+            `).join("")}
           </div>
+        </div>
 
-          <div class="question-block">
-            <div class="question-title">
-              D-2-${i}-3. 이 이모티콘에서 두 가지 이상의 감정이 동시에 느껴졌나요? <span class="required">*</span>
-            </div>
-            <div class="options">
-              <label class="option"><input type="radio" name="D2_multi_${i}" value="예" required /> <span>예</span></label>
-              <label class="option"><input type="radio" name="D2_multi_${i}" value="아니오" /> <span>아니오</span></label>
-            </div>
-          </div>
-
-          <div class="question-block">
-            <div class="question-title">
-              D-2-${i}-4. 이 이모티콘의 의미를 이해하는 데 어려움이 있었나요? <span class="required">*</span>
-            </div>
-            <div class="question-desc">1 = 전혀 어렵지 않았다 ~ 7 = 매우 어려웠다</div>
-            ${renderLikert(`D2_difficulty_${i}`, 1, 7, true)}
-          </div>
-
-          <div class="question-block">
-            <div class="question-title">
-              D-2-${i}-5. 이 이모티콘이 표현하는 감정이 명확하다고 느끼셨나요? <span class="required">*</span>
-            </div>
-            <div class="question-desc">1 = 전혀 명확하지 않다 ~ 7 = 매우 명확하다</div>
-            ${renderLikert(`D2_clarity_${i}`, 1, 7, true)}
-          </div>
-
-          <div class="question-block" data-min-check="1" data-group="D2_target_${i}">
-            <div class="question-title">
-              D-2-${i}-6. 이 이모티콘을 누구에게 사용할 수 있다고 생각하나요? (복수 선택) <span class="required">*</span>
-            </div>
-            <div class="options">
-              <label class="option"><input type="checkbox" name="D2_target_${i}" value="부모님" /> <span>부모님</span></label>
-              <label class="option"><input type="checkbox" name="D2_target_${i}" value="윗사람" /> <span>윗사람(직장 상사/교수님 등)</span></label>
-              <label class="option"><input type="checkbox" name="D2_target_${i}" value="친구" /> <span>친구</span></label>
-              <label class="option"><input type="checkbox" name="D2_target_${i}" value="아랫사람" /> <span>아랫사람(후배/동생)</span></label>
-              <label class="option"><input type="checkbox" name="D2_target_${i}" value="모르는 사람/온라인 상대" /> <span>모르는 사람/온라인 상대</span></label>
-              <label class="option"><input type="checkbox" name="D2_target_${i}" value="누구에게나 사용할 수 있다" /> <span>누구에게나 사용할 수 있다</span></label>
-            </div>
-          </div>
-
-          <input type="hidden" name="D2_emoji_${i}" value="${file}">
-          <input type="hidden" name="D2_order_${i}" value="${i}">
-        `;
-        d2.appendChild(wrap);
-      });
-
-      // PART E
-      const partEItems = [
-        { code: "E_PubNeg_1", text: "공적인 대화에서 내가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Negative)" },
-        { code: "E_PubNeg_2R", text: "공적인 대화에서 나는 부정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Public×Negative)" },
-        { code: "E_PubNeg_3", text: "공적인 대화에서 상대가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Negative)" },
-        { code: "E_PubNeg_4R", text: "공적인 대화에서 상대가 사용하는 부정적인 이모티콘은 종종 이해하기 어렵다. (R) (Public×Negative)" },
-
-        { code: "E_PriNeg_1", text: "사적인 대화에서 내가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Negative)" },
-        { code: "E_PriNeg_2R", text: "사적인 대화에서 나는 부정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Private×Negative)" },
-        { code: "E_PriNeg_3", text: "사적인 대화에서 상대가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Negative)" },
-        { code: "E_PriNeg_4R", text: "사적인 대화에서 상대가 사용하는 부정적인 이모티콘은 종종 이해하기 어렵다. (R) (Private×Negative)" },
-
-        { code: "E_PubPos_1", text: "공적인 대화에서 내가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Positive)" },
-        { code: "E_PubPos_2R", text: "공적인 대화에서 나는 긍정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Public×Positive)" },
-        { code: "E_PubPos_3", text: "공적인 대화에서 상대가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Positive)" },
-        { code: "E_PubPos_4R", text: "공적인 대화에서 상대가 사용하는 긍정적인 이모티콘은 종종 이해하기 어렵다. (R) (Public×Positive)" },
-
-        { code: "E_PriPos_1", text: "사적인 대화에서 내가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Positive)" },
-        { code: "E_PriPos_2R", text: "사적인 대화에서 나는 긍정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Private×Positive)" },
-        { code: "E_PriPos_3", text: "사적인 대화에서 상대가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Positive)" },
-        { code: "E_PriPos_4R", text: "사적인 대화에서 상대가 사용하는 긍정적인 이모티콘은 종종 이해하기 어렵다. (R) (Private×Positive)" },
-      ];
-
-      const partEContainer = document.getElementById("partE-container");
-      shuffle(partEItems).forEach((it, idx) => {
-        const block = document.createElement("div");
-        block.className = "question-block";
-        block.innerHTML = `
+        <div class="question-block">
           <div class="question-title">
-            E-${idx + 1}. ${it.text} <span class="required">*</span>
+            D-2-${i}-3. 이 이모티콘에서 두 가지 이상의 감정이 동시에 느껴졌나요?
           </div>
-          <div class="question-desc">1 = 매우 그렇지 않다 ~ 9 = 매우 그렇다</div>
-          ${renderLikert(it.code, 1, 9, true)}
-        `;
-        partEContainer.appendChild(block);
-      });
+          <div class="options">
+            <label class="option"><input type="radio" name="D2_multi_${i}" value="예" /> <span>예</span></label>
+            <label class="option"><input type="radio" name="D2_multi_${i}" value="아니오" /> <span>아니오</span></label>
+          </div>
+        </div>
 
-      // 페이지 이동
-      document.getElementById("to-step2").addEventListener("click", () => {
-        if (validateStep(step1, err1)) showStep(2);
-      });
-      document.getElementById("back-to-step1").addEventListener("click", () => showStep(1));
+        <div class="question-block">
+          <div class="question-title">
+            D-2-${i}-4. 이 이모티콘의 의미를 이해하는 데 어려움이 있었나요?
+          </div>
+          <div class="question-desc">1 = 전혀 어렵지 않았다 ~ 7 = 매우 어려웠다</div>
+          ${renderLikert(`D2_difficulty_${i}`, 1, 7)}
+        </div>
 
-      document.getElementById("to-step3").addEventListener("click", () => {
-        if (validateStep(step2, err2)) showStep(3);
-      });
-      document.getElementById("back-to-step2").addEventListener("click", () => showStep(2));
+        <div class="question-block">
+          <div class="question-title">
+            D-2-${i}-5. 이 이모티콘이 표현하는 감정이 명확하다고 느끼셨나요?
+          </div>
+          <div class="question-desc">1 = 전혀 명확하지 않다 ~ 7 = 매우 명확하다</div>
+          ${renderLikert(`D2_clarity_${i}`, 1, 7)}
+        </div>
 
-      document.getElementById("to-step4").addEventListener("click", () => {
-        if (validateStep(step3, err3)) showStep(4);
-      });
-      document.getElementById("back-to-step3").addEventListener("click", () => showStep(3));
+        <div class="question-block">
+          <div class="question-title">
+            D-2-${i}-6. 이 이모티콘을 누구에게 사용할 수 있다고 생각하나요? (복수 선택)
+          </div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="D2_target_${i}" value="부모님" /> <span>부모님</span></label>
+            <label class="option"><input type="checkbox" name="D2_target_${i}" value="윗사람" /> <span>윗사람(직장 상사/교수님 등)</span></label>
+            <label class="option"><input type="checkbox" name="D2_target_${i}" value="친구" /> <span>친구</span></label>
+            <label class="option"><input type="checkbox" name="D2_target_${i}" value="아랫사람" /> <span>아랫사람(후배/동생)</span></label>
+            <label class="option"><input type="checkbox" name="D2_target_${i}" value="모르는 사람/온라인 상대" /> <span>모르는 사람/온라인 상대</span></label>
+            <label class="option"><input type="checkbox" name="D2_target_${i}" value="누구에게나 사용할 수 있다" /> <span>누구에게나 사용할 수 있다</span></label>
+          </div>
+        </div>
 
-      document.getElementById("to-step5").addEventListener("click", () => {
-        if (validateStep(step4, err4)) showStep(5);
-      });
-      document.getElementById("back-to-step4").addEventListener("click", () => showStep(4));
-
-      // 제출
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        if (!validateStep(step5, err5)) return;
-
-        try {
-          await submitToSheet(form);
-
-          form.style.display = "none";
-          thank.style.display = "block";
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        } catch (err) {
-          console.error(err);
-          alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
-        }
-      });
+        <input type="hidden" name="D2_emoji_${i}" value="${file}">
+        <input type="hidden" name="D2_order_${i}" value="${i}">
+      `;
+      d2.appendChild(wrap);
     });
-  </script>
+
+    // -------------------------
+    // [JS-5C] PART E 랜덤 렌더링
+    // -------------------------
+    const partEItems = [
+      { code: "E_PubNeg_1", text: "공적인 대화에서 내가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Negative)" },
+      { code: "E_PubNeg_2R", text: "공적인 대화에서 나는 부정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Public×Negative)" },
+      { code: "E_PubNeg_3", text: "공적인 대화에서 상대가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Negative)" },
+      { code: "E_PubNeg_4R", text: "공적인 대화에서 상대가 사용하는 부정적인 이모티콘은 종종 이해하기 어렵다. (R) (Public×Negative)" },
+
+      { code: "E_PriNeg_1", text: "사적인 대화에서 내가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Negative)" },
+      { code: "E_PriNeg_2R", text: "사적인 대화에서 나는 부정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Private×Negative)" },
+      { code: "E_PriNeg_3", text: "사적인 대화에서 상대가 부정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Negative)" },
+      { code: "E_PriNeg_4R", text: "사적인 대화에서 상대가 사용하는 부정적인 이모티콘은 종종 이해하기 어렵다. (R) (Private×Negative)" },
+
+      { code: "E_PubPos_1", text: "공적인 대화에서 내가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Positive)" },
+      { code: "E_PubPos_2R", text: "공적인 대화에서 나는 긍정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Public×Positive)" },
+      { code: "E_PubPos_3", text: "공적인 대화에서 상대가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Public×Positive)" },
+      { code: "E_PubPos_4R", text: "공적인 대화에서 상대가 사용하는 긍정적인 이모티콘은 종종 이해하기 어렵다. (R) (Public×Positive)" },
+
+      { code: "E_PriPos_1", text: "사적인 대화에서 내가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Positive)" },
+      { code: "E_PriPos_2R", text: "사적인 대화에서 나는 긍정적인 이모티콘으로 감정을 표현하기 어렵다. (R) (Private×Positive)" },
+      { code: "E_PriPos_3", text: "사적인 대화에서 상대가 긍정적인 이모티콘을 사용하는 것은 괜찮다. (Private×Positive)" },
+      { code: "E_PriPos_4R", text: "사적인 대화에서 상대가 사용하는 긍정적인 이모티콘은 종종 이해하기 어렵다. (R) (Private×Positive)" },
+    ];
+
+    const partEContainer = document.getElementById("partE-container");
+    shuffle(partEItems).forEach((it, idx) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+      block.innerHTML = `
+        <div class="question-title">
+          E-${idx + 1}. ${it.text}
+        </div>
+        <div class="question-desc">1 ~ 9</div>
+        ${renderLikert(it.code, 1, 9)}
+      `;
+      partEContainer.appendChild(block);
+    });
+
+    // -------------------------
+    // [JS-5D] 페이지 이동
+    // -------------------------
+    document.getElementById("to-step2").addEventListener("click", () => {
+      if (validateStep()) showStep(2);
+    });
+    document.getElementById("back-to-step1").addEventListener("click", () => showStep(1));
+
+    document.getElementById("to-step3").addEventListener("click", () => {
+      if (validateStep()) showStep(3);
+    });
+    document.getElementById("back-to-step2").addEventListener("click", () => showStep(2));
+
+    document.getElementById("to-step4").addEventListener("click", () => {
+      if (validateStep()) showStep(4);
+    });
+    document.getElementById("back-to-step3").addEventListener("click", () => showStep(3));
+
+    document.getElementById("to-step5").addEventListener("click", () => {
+      if (validateStep()) showStep(5);
+    });
+    document.getElementById("back-to-step4").addEventListener("click", () => showStep(4));
+
+    // -------------------------
+    // ✅ [JS-5E] 최종 제출 (Apps Script 전송)
+    // -------------------------
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      try {
+        await submitToSheet(form);
+        form.style.display = "none";
+        thank.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (err) {
+        console.error(err);
+        alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
+      }
+    });
+  });
+</script>
 </body>
 </html>
