@@ -536,26 +536,17 @@
   // ✅ Apps Script 전송
   // - key 순서를 안정화하기 위해 FIELD_ORDER를 정의하고 그 순서대로 data 구성
   // =========================
-  async function submitToSheet(formEl) {
+ async function submitToSheet(formEl) {
   const fd = new FormData(formEl);
-  const data = {};
 
-  for (const [k, v] of fd.entries()) {
-    if (data[k]) {
-      if (!Array.isArray(data[k])) data[k] = [data[k]];
-      data[k].push(v);
-    } else {
-      data[k] = v;
-    }
-  }
+  // 제출 시각(프론트)
+  fd.append("_submitted_at", new Date().toISOString());
 
-  data._submitted_at = new Date().toISOString();
-
+  // ✅ 핵심: headers 넣지 말고, JSON.stringify 하지 말고, FormData 그대로 보내기
   await fetch(API_URL, {
     method: "POST",
     mode: "no-cors",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify(data),
+    body: fd,
   });
 }
 
@@ -854,5 +845,6 @@
 
 </body>
 </html>
+
 
 
