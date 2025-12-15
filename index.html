@@ -483,7 +483,7 @@
   // =========================
   // ✅ 설정 (Apps Script URL)
   // =========================
-  const API_URL = "https://script.google.com/macros/s/AKfycbx7X5RgqSt37lXKnGLms8_7-hxSUJEl-O1kp9N69L4_tF2GXlN8JsbIPixeCAMJ_4t_ow/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbxoI_s-tx_Z64WLroJ2_BdWcU4Go0v6GLGL0_jp5qy279sNIXCpdQ-NhGOK9ZO3MCUmLQ/exec";
 
   // ✅ 필수 제거: 검증 끄기(원하면 true로 바꾸면 됨)
   const ENABLE_VALIDATION = false;
@@ -544,9 +544,10 @@
 
   // ✅ 핵심: headers 넣지 말고, JSON.stringify 하지 말고, FormData 그대로 보내기
   await fetch(API_URL, {
-    method: "POST",
-    mode: "no-cors",
-    body: fd,
+  method: "POST",
+  mode: "no-cors",
+  headers: { "Content-Type": "text/plain;charset=utf-8" },
+  body: JSON.stringify(data),
   });
 }
 
@@ -845,6 +846,7 @@
 
 </body>
 </html>
+
 
 
 
